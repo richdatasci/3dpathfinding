@@ -1,151 +1,127 @@
 import streamlit as st
-import pandas as pd
-import math
-from pathlib import Path
-
-# Set the title and favicon that appear in the Browser's tab bar.
-st.set_page_config(
-    page_title='GDP dashboard',
-    page_icon=':earth_americas:', # This is an emoji shortcode. Could be a URL too.
-)
-
-# -----------------------------------------------------------------------------
-# Declare some useful functions.
-
-@st.cache_data
-def get_gdp_data():
-    """Grab GDP data from a CSV file.
-
-    This uses caching to avoid having to read the file every time. If we were
-    reading from an HTTP endpoint instead of a file, it's a good idea to set
-    a maximum age to the cache with the TTL argument: @st.cache_data(ttl='1d')
-    """
-
-    # Instead of a CSV on disk, you could read from an HTTP endpoint here too.
-    DATA_FILENAME = Path(__file__).parent/'data/gdp_data.csv'
-    raw_gdp_df = pd.read_csv(DATA_FILENAME)
-
-    MIN_YEAR = 1960
-    MAX_YEAR = 2022
-
-    # The data above has columns like:
-    # - Country Name
-    # - Country Code
-    # - [Stuff I don't care about]
-    # - GDP for 1960
-    # - GDP for 1961
-    # - GDP for 1962
-    # - ...
-    # - GDP for 2022
-    #
-    # ...but I want this instead:
-    # - Country Name
-    # - Country Code
-    # - Year
-    # - GDP
-    #
-    # So let's pivot all those year-columns into two: Year and GDP
-    gdp_df = raw_gdp_df.melt(
-        ['Country Code'],
-        [str(x) for x in range(MIN_YEAR, MAX_YEAR + 1)],
-        'Year',
-        'GDP',
-    )
-
-    # Convert years from string to integers
-    gdp_df['Year'] = pd.to_numeric(gdp_df['Year'])
-
-    return gdp_df
-
-gdp_df = get_gdp_data()
-
-# -----------------------------------------------------------------------------
-# Draw the actual page
-
-# Set the title that appears at the top of the page.
-'''
-# :earth_americas: GDP dashboard
-
-Browse GDP data from the [World Bank Open Data](https://data.worldbank.org/) website. As you'll
-notice, the data only goes to 2022 right now, and datapoints for certain years are often missing.
-But it's otherwise a great (and did I mention _free_?) source of data.
-'''
-
-# Add some spacing
-''
-''
-
-min_value = gdp_df['Year'].min()
-max_value = gdp_df['Year'].max()
-
-from_year, to_year = st.slider(
-    'Which years are you interested in?',
-    min_value=min_value,
-    max_value=max_value,
-    value=[min_value, max_value])
-
-countries = gdp_df['Country Code'].unique()
-
-if not len(countries):
-    st.warning("Select at least one country")
-
-selected_countries = st.multiselect(
-    'Which countries would you like to view?',
-    countries,
-    ['DEU', 'FRA', 'GBR', 'BRA', 'MEX', 'JPN'])
-
-''
-''
-''
-
-# Filter the data
-filtered_gdp_df = gdp_df[
-    (gdp_df['Country Code'].isin(selected_countries))
-    & (gdp_df['Year'] <= to_year)
-    & (from_year <= gdp_df['Year'])
-]
-
-st.header('GDP over time', divider='gray')
-
-''
-
-st.line_chart(
-    filtered_gdp_df,
-    x='Year',
-    y='GDP',
-    color='Country Code',
-)
-
-''
-''
+import networkx as nx
+import plotly.graph_objects as go
+import string
+import random
+import heapq
 
 
-first_year = gdp_df[gdp_df['Year'] == from_year]
-last_year = gdp_df[gdp_df['Year'] == to_year]
+# generate the graph
+def generate_graph():
+    alphabet = list(string.ascii_uppercase)
+    node_labels = alphabet + ['A' + letter for letter in alphabet[:22]]
 
-st.header(f'GDP in {to_year}', divider='gray')
+    G = nx.Graph()
+    G.add_nodes_from(node_labels)
 
-''
+    for _ in range(94):
+        node1, node2 = random.sample(node_labels, 2)
+        weight = random.randint(1, 10)
+        G.add_edge(node1, node2, weight=weight)
 
-cols = st.columns(4)
+    pos = {node: (random.uniform(-10, 10), random.uniform(-10, 10), random.uniform(-10, 10)) for node in node_labels}
 
-for i, country in enumerate(selected_countries):
-    col = cols[i % len(cols)]
+    return G, pos
 
-    with col:
-        first_gdp = first_year[first_year['Country Code'] == country]['GDP'].iat[0] / 1000000000
-        last_gdp = last_year[last_year['Country Code'] == country]['GDP'].iat[0] / 1000000000
 
-        if math.isnan(first_gdp):
-            growth = 'n/a'
-            delta_color = 'off'
-        else:
-            growth = f'{last_gdp / first_gdp:,.2f}x'
-            delta_color = 'normal'
+# visualise the 3D graph
+def visualize_3d_graph_plotly(G, pos, path=None):
+    edge_trace = []
+    path_edge_trace = []
+    node_x, node_y, node_z = [], [], []
+    node_text = []
 
-        st.metric(
-            label=f'{country} GDP',
-            value=f'{last_gdp:,.0f}B',
-            delta=growth,
-            delta_color=delta_color
-        )
+    for node in G.nodes():
+        x, y, z = pos[node]
+        node_x.append(x)
+        node_y.append(y)
+        node_z.append(z)
+        node_text.append(node)
+
+    for edge in G.edges():
+        x0, y0, z0 = pos[edge[0]]
+        x1, y1, z1 = pos[edge[1]]
+        edge_trace.append(go.Scatter3d(x=[x0, x1], y=[y0, y1], z=[z0, z1],
+                                       mode='lines', line=dict(color='gray', width=2)))
+
+    if path:
+        path_edges = list(zip(path, path[1:]))
+        for edge in path_edges:
+            x0, y0, z0 = pos[edge[0]]
+            x1, y1, z1 = pos[edge[1]]
+            path_edge_trace.append(go.Scatter3d(x=[x0, x1], y=[y0, y1], z=[z0, z1],
+                                                mode='lines', line=dict(color='blue', width=4)))
+
+    node_trace = go.Scatter3d(x=node_x, y=node_y, z=node_z,
+                              mode='markers+text',
+                              text=node_text,
+                              textposition='top center',
+                              marker=dict(size=8, color='skyblue'),
+                              hoverinfo='text')
+
+    fig = go.Figure(data=edge_trace + path_edge_trace + [node_trace],
+                    layout=go.Layout(title='Use mouse to rotate and zoom visual',
+                                     showlegend=False,
+                                     width=1000,
+                                     height=800,
+                                     scene=dict(xaxis=dict(showbackground=False),
+                                                yaxis=dict(showbackground=False),
+                                                zaxis=dict(showbackground=False))))
+    return fig
+
+
+# Dijkstra's Algorithm implementation
+def dijkstra_3d(graph, start, goal):
+    queue = [(0, start)]
+    distances = {node: float('inf') for node in graph.nodes}
+    distances[start] = 0
+    previous_nodes = {node: None for node in graph.nodes}
+
+    while queue:
+        current_distance, current_node = heapq.heappop(queue)
+
+        if current_node == goal:
+            break
+
+        for neighbor, attributes in graph[current_node].items():
+            weight = attributes['weight']
+            distance = current_distance + weight
+
+            if distance < distances[neighbor]:
+                distances[neighbor] = distance
+                previous_nodes[neighbor] = current_node
+                heapq.heappush(queue, (distance, neighbor))
+
+    path = []
+    current_node = goal
+    while current_node is not None:
+        path.insert(0, current_node)
+        current_node = previous_nodes[current_node]
+
+    return path, distances[goal]
+
+
+# Streamlit app
+def main():
+    st.title("3D Graph Path Finding Demo")
+
+    st.sidebar.header("Graph Options")
+    G, pos = generate_graph()
+
+    nodes = list(G.nodes)
+    start_node = st.sidebar.selectbox("Select Start Point:", nodes)
+    goal_node = st.sidebar.selectbox("Select Goal Point:", nodes)
+
+    if st.sidebar.button("Run Algorithm"):
+        shortest_path, shortest_distance = dijkstra_3d(G, start_node, goal_node)
+        st.write(f"**Shortest path from {start_node} to {goal_node}:** {shortest_path}")
+        st.write(f"**Shortest distance:** {shortest_distance}")
+        fig = visualize_3d_graph_plotly(G, pos, path=shortest_path)
+    else:
+        fig = visualize_3d_graph_plotly(G, pos)
+
+    st.plotly_chart(fig)
+
+
+if __name__ == "__main__":
+    main()
