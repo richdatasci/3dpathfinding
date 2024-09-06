@@ -29,7 +29,7 @@ def generate_graph():
     eyeplates = {}
     for i in range(1, 21):
         x, y, z = random.uniform(0, 10), random.uniform(0, 10), random.uniform(-5, 5)  # Random Z between -5 and 5
-        eyeplates[f'Eyeplate {i}'] = (x, y, z)
+        eyeplates[f'EP {i}'] = (x, y, z)
 
     # Add eyeplate nodes
     for eyeplate, position in eyeplates.items():
@@ -60,7 +60,7 @@ def generate_graph():
     pos = nx.get_node_attributes(G, 'pos')
     return G, pos
 
-# Function to visualize the 3D graph with Plotly
+# Function to visualise the 3D graph with Plotly
 def visualize_3d_graph_plotly(G, pos, path=None, active_eyeplates=None):
     edge_trace = []
     path_edge_trace = []
@@ -100,11 +100,11 @@ def visualize_3d_graph_plotly(G, pos, path=None, active_eyeplates=None):
                               marker=dict(size=node_size, color='skyblue'),
                               hoverinfo='text')
 
-    # Adjust width and height of the figure to 1000x1000
+    # Build visualisation
     fig = go.Figure(data=edge_trace + path_edge_trace + [node_trace],
-                    layout=go.Layout(title='3D Graph Visualization - Compartments and Eyeplates',
-                                     width=1000,  # Set the width to 1000 pixels
-                                     height=1000,  # Set the height to 1000 pixels
+                    layout=go.Layout(title='Use the mouse to zoom in/out or rotate graph',
+                                     width=1200,  # Set the width to 1000 pixels
+                                     height=1200,  # Set the height to 1000 pixels
                                      showlegend=False,
                                      scene=dict(xaxis=dict(showbackground=False),
                                                 yaxis=dict(showbackground=False),
