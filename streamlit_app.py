@@ -122,8 +122,8 @@ def visualize_3d_graph_plotly(G, pos, path=None, active_eyeplates=None):
 
     fig = go.Figure(data=edge_trace + path_edge_trace + [node_trace],
                     layout=go.Layout(title='Use mouse to zoom and rotate',
-                                     width=1000,  
-                                     height=500,  
+                                     width=1300,  
+                                     height=700,  
                                      scene_camera=camera,  
                                      showlegend=False,
                                      scene=dict(xaxis=dict(showbackground=False),
