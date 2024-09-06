@@ -52,7 +52,7 @@ def generate_graph():
             dist = np.linalg.norm(np.array(comp_pos) - np.array(eye_pos))
             distances.append((dist, eyeplate))
 
-        # Connect each compartment to its nearest eyeplate
+        # Connect each compartment to its nearest eyeplate (as suggested by Tian)
         distances.sort()
         nearest_eyeplate = distances[0][1]
         G.add_edge(compartment, nearest_eyeplate, weight=distances[0][0])
@@ -93,8 +93,90 @@ def visualize_3d_graph_plotly(G, pos, path=None, active_eyeplates=None):
                                                 mode='lines', line=dict(color='blue', width=4)))
 
     # Add nodes with tooltips (include active eyeplates toggle)
-   
+    node_trace = go.Scatter3d(x=node_x, y=node_y, z=node_z,
+                              mode='markers+text',
+                              text=node_text,
+                              textposition='top center',
+                              marker=dict(size=node_size, color='skyblue'),
+                              hoverinfo='text')
+
+    # Build interactive map
+    fig = go.Figure(data=edge_trace + path_edge_trace + [node_trace],
+                    layout=go.Layout(title='3D Graph Visualization - Compartments and Eyeplates',
+                                     width=1000,
+                                     height=1000,
+                                     showlegend=False,
+                                     scene=dict(xaxis=dict(showbackground=False),
+                                                yaxis=dict(showbackground=False),
+                                                zaxis=dict(showbackground=False))))
+    return fig
+
+# Dijkstra's Algorithm to find the path through Eyeplates
+def dijkstra_3d_with_eyeplates(graph, start, goal, active_eyeplates):
+    # Filter the graph based on active eyeplates
+    filtered_graph = graph.copy()
+    
+    # Remove inactive eyeplates
+    for node in list(filtered_graph.nodes):
+        if 'Eyeplate' in node and node not in active_eyeplates:
+            filtered_graph.remove_node(node)
+
+    queue = [(0, start)]
+    distances = {node: float('inf') for node in filtered_graph.nodes}
+    distances[start] = 0
+    previous_nodes = {node: None for node in filtered_graph.nodes}
+
+    while queue:
+        current_distance, current_node = heapq.heappop(queue)
+
+        if current_node == goal:
+            break
+
+        for neighbor, attributes in filtered_graph[current_node].items():
+            weight = attributes['weight']
+            distance = current_distance + weight
+
+            if distance < distances[neighbor]:
+                distances[neighbor] = distance
+                previous_nodes[neighbor] = current_node
+                heapq.heappush(queue, (distance, neighbor))
+
+    path = []
+    current_node = goal
+    while current_node is not None:
+        path.insert(0, current_node)
+        current_node = previous_nodes[current_node]
+
+    return path, distances[goal]
+
+# Streamlit app
+def main():
+    st.title("3D Ship Compartment Pathfinding Visualization")
+    
+    st.sidebar.header("Graph Options")
+    
+    # Generate the graph with compartments and eyeplates
+    G, pos = generate_graph()
+    
+    # Select start and goal nodes (only compartments are valid start/end)
+    compartments = [n for n in G.nodes if G.nodes[n]['group'] == 'compartment']
+    eyeplates = [n for n in G.nodes if G.nodes[n]['group'] == 'eyeplate']
+    
+    start_node = st.sidebar.selectbox("Select Start Compartment:", compartments)
+    goal_node = st.sidebar.selectbox("Select Goal Compartment:", compartments)
+
+    # Allow user to turn eyeplates on/off
+    active_eyeplates = st.sidebar.multiselect("Select Active Eyeplates:", eyeplates, default=eyeplates)
+
+    if st.sidebar.button("Find Path"):
+        shortest_path, shortest_distance = dijkstra_3d_with_eyeplates(G, start_node, goal_node, active_eyeplates)
+        st.write(f"**Shortest path from {start_node} to {goal_node} via Eyeplates:** {shortest_path}")
+        st.write(f"**Shortest distance:** {shortest_distance}")
+        fig = visualize_3d_graph_plotly(G, pos, path=shortest_path, active_eyeplates=active_eyeplates)
+    else:
+        fig = visualize_3d_graph_plotly(G, pos, active_eyeplates=active_eyeplates)
+
+    st.plotly_chart(fig)
 
 if __name__ == "__main__":
     main()
-
