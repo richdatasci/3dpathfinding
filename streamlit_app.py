@@ -2,10 +2,9 @@ import streamlit as st
 import networkx as nx
 import plotly.graph_objects as go
 import heapq
-import random
 import numpy as np
 
-# Function to generate the graph with compartments and eyeplates
+# Function to generate the graph with compartments and fixed eyeplates
 def generate_graph():
     G = nx.Graph()
     
@@ -25,13 +24,31 @@ def generate_graph():
     for compartment, position in {**bottom_compartments, **top_compartments}.items():
         G.add_node(compartment, pos=position, size=20, group='compartment')
 
-    # Create smaller nodes representing eyeplates with random Z-values
-    eyeplates = {}
-    for i in range(1, 21):
-        x, y, z = random.uniform(-30, 0), random.uniform(0, 10), random.uniform(-5, 5)  # Wider X range
-        eyeplates[f'EP {i}'] = (x, y, z)
+    # Define fixed positions for 20 eyeplates between the compartments
+    eyeplates = {
+        'EP 1': (-25, 2.5, 0),   
+        'EP 2': (-15, 2.5, 0),   
+        'EP 3': (-5, 2.5, 0),    
+        'EP 4': (-2, 7.5, 0),   
+        'EP 5': (-28, 7.5, 0),   
+        'EP 6': (-22, 3.5, 0),   
+        'EP 7': (-12, 6.0, 0),
+        'EP 8': (-8, 2.5, 0),
+        'EP 9': (-6, 7.0, 0),
+        'EP 10': (-14, 6.0, 0),
+        'EP 11': (-27, 1.0, 0),
+        'EP 12': (-16, 1.0, 0),
+        'EP 13': (-7, 1.0, 0),
+        'EP 14': (-9, 5.0, 0),
+        'EP 15': (-19, 5.0, 0),
+        'EP 16': (-22, 8.0, 0),
+        'EP 17': (-12, 8.0, 0),
+        'EP 18': (-10, 9.0, 0),
+        'EP 19': (-5, 9.0, 0),
+        'EP 20': (-25, 9.0, 0)
+    }
 
-    # Add eyeplate nodes
+    # Add eyeplate nodes with fixed positions
     for eyeplate, position in eyeplates.items():
         G.add_node(eyeplate, pos=position, size=10, group='eyeplate')
 
@@ -41,7 +58,7 @@ def generate_graph():
         for j, (node2, pos2) in enumerate(all_eyeplates):
             if node1 != node2:
                 dist = np.linalg.norm(np.array(pos1) - np.array(pos2))
-                if dist < 10:  # Increase connection threshold slightly for a landscape layout
+                if dist < 10:  # Connect eyeplates within a certain distance threshold
                     G.add_edge(node1, node2, weight=dist)
 
     # Ensure compartments are connected to only one eyeplate
@@ -103,12 +120,12 @@ def visualize_3d_graph_plotly(G, pos, path=None, active_eyeplates=None):
     # Camera view for landscape
     camera = dict(eye=dict(x=2.5, y=0.1, z=0.8))  # Adjust camera for a horizontal view
 
-    # Build fig
+    # Adjust width and height of the figure to 1000x1000
     fig = go.Figure(data=edge_trace + path_edge_trace + [node_trace],
-                    layout=go.Layout(title='Use mouse to zoom & rotate',
-                                     width=1800,  
-                                     height=1000,  
-                                     scene_camera=camera,  
+                    layout=go.Layout(title='Use mouse to zoom and rotate',
+                                     width=2000,  
+                                     height=1400,  
+                                     scene_camera=camera,  # Apply the camera for landscape view
                                      showlegend=False,
                                      scene=dict(xaxis=dict(showbackground=False),
                                                 yaxis=dict(showbackground=False),
@@ -122,7 +139,7 @@ def dijkstra_3d_with_eyeplates(graph, start, goal, active_eyeplates):
     
     # Remove inactive eyeplates
     for node in list(filtered_graph.nodes):
-        if 'Eyeplate' in node and node not in active_eyeplates:
+        if 'EP' in node and node not in active_eyeplates:
             filtered_graph.remove_node(node)
 
     queue = [(0, start)]
@@ -155,7 +172,7 @@ def dijkstra_3d_with_eyeplates(graph, start, goal, active_eyeplates):
 
 # Streamlit app
 def main():
-    st.title("3D Graph Pathfinding")
+    st.title("3D Compartment Pathfinding")
     
     st.sidebar.header("Graph Options")
     
@@ -164,24 +181,6 @@ def main():
     
     # Select start and goal nodes (only compartments are valid start/end)
     compartments = [n for n in G.nodes if G.nodes[n]['group'] == 'compartment']
-    eyeplates = [n for n in G.nodes if G.nodes[n]['group'] == 'eyeplate']
-    
-    start_node = st.sidebar.selectbox("Select Start Compartment:", compartments)
-    goal_node = st.sidebar.selectbox("Select Goal Compartment:", compartments)
+    eyeplates = [n for n
 
-    # Allow user to turn eyeplates on/off
-    active_eyeplates = st.sidebar.multiselect("Select Active Eyeplates:", eyeplates, default=eyeplates)
-
-    if st.sidebar.button("Find Path"):
-        shortest_path, shortest_distance = dijkstra_3d_with_eyeplates(G, start_node, goal_node, active_eyeplates)
-        st.write(f"**Shortest path from {start_node} to {goal_node} via Eyeplates:** {shortest_path}")
-        st.write(f"**Shortest distance:** {shortest_distance}")
-        fig = visualize_3d_graph_plotly(G, pos, path=shortest_path, active_eyeplates=active_eyeplates)
-    else:
-        fig = visualize_3d_graph_plotly(G, pos, active_eyeplates=active_eyeplates)
-
-    st.plotly_chart(fig)
-
-if __name__ == "__main__":
-    main()
 
