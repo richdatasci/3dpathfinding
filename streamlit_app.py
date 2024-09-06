@@ -26,7 +26,7 @@ def generate_graph():
 
     # Define fixed 3D positions for 20 eyeplates (EPs)
     eyeplates = {
-        'EP 1': (-25, 2.5, 1),    # Slightly above/below Z=0
+        'EP 1': (-25, 2.5, 1),    
         'EP 2': (-15, 2.5, -1), 
         'EP 3': (-5, 2.5, 2),    
         'EP 4': (-2, 7.5, -2),   
@@ -77,7 +77,7 @@ def generate_graph():
     pos = nx.get_node_attributes(G, 'pos')
     return G, pos
 
-# Function to visualize the 3D graph with Plotly
+# Function to visualise the 3D graph 
 def visualize_3d_graph_plotly(G, pos, path=None, active_eyeplates=None):
     edge_trace = []
     path_edge_trace = []
@@ -120,11 +120,11 @@ def visualize_3d_graph_plotly(G, pos, path=None, active_eyeplates=None):
     # Camera view for landscape
     camera = dict(eye=dict(x=2.5, y=0.1, z=0.8))  # Adjust camera for a horizontal view
 
-    # Adjust width and height of the figure to 1000x1000
+    # Create fig dimensions
     fig = go.Figure(data=edge_trace + path_edge_trace + [node_trace],
                     layout=go.Layout(title='Use mouse to zoom and rotate',
-                                     width=1800,
-                                     height=1000, 
+                                     width=2000,  
+                                     height=1200,  
                                      scene_camera=camera,  
                                      showlegend=False,
                                      scene=dict(xaxis=dict(showbackground=False),
@@ -172,7 +172,7 @@ def dijkstra_3d_with_eyeplates(graph, start, goal, active_eyeplates):
 
 # Streamlit app
 def main():
-    st.title("3D Compartment Pathfinding")
+    st.title("3D Compartment Path Finder")
     
     st.sidebar.header("Graph Options")
     
@@ -197,7 +197,8 @@ def main():
     else:
         fig = visualize_3d_graph_plotly(G, pos, active_eyeplates=active_eyeplates)
 
-    st.plotly_chart(fig)
+    # Use container width to make sure it scales well
+    st.plotly_chart(fig, use_container_width=True)
 
 if __name__ == "__main__":
     main()
