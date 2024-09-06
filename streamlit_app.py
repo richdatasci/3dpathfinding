@@ -123,9 +123,9 @@ def visualize_3d_graph_plotly(G, pos, path=None, active_eyeplates=None):
     # Adjust width and height of the figure to 1000x1000
     fig = go.Figure(data=edge_trace + path_edge_trace + [node_trace],
                     layout=go.Layout(title='Use mouse to zoom and rotate',
-                                     width=1000,  # Set the width to 1000 pixels
-                                     height=600,  # Set the height to 600 pixels to make it landscape
-                                     scene_camera=camera,  # Apply the camera for landscape view
+                                     width=1500,
+                                     height=800, 
+                                     scene_camera=camera,  
                                      showlegend=False,
                                      scene=dict(xaxis=dict(showbackground=False),
                                                 yaxis=dict(showbackground=False),
