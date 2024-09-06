@@ -29,20 +29,26 @@ def generate_graph():
     for eyeplate, position in eyeplates.items():
         G.add_node(eyeplate, pos=position, size=10, group='eyeplate')
 
-    # Connect nodes to their nearest neighbors (within a threshold)
-    all_nodes = {**compartments, **eyeplates}
-    node_positions = list(all_nodes.items())
-
-    for i, (node1, pos1) in enumerate(node_positions):
-        distances = []
-        for j, (node2, pos2) in enumerate(node_positions):
+    # Connect eyeplates to each other
+    all_eyeplates = list(eyeplates.items())
+    for i, (node1, pos1) in enumerate(all_eyeplates):
+        for j, (node2, pos2) in enumerate(all_eyeplates):
             if node1 != node2:
                 dist = np.linalg.norm(np.array(pos1) - np.array(pos2))
-                distances.append((dist, node2))
+                if dist < 5:  # Connect eyeplates within a certain distance threshold
+                    G.add_edge(node1, node2, weight=dist)
 
-        distances.sort()  # Sort by distance
-        nearest_neighbor = distances[0][1]  # Get the nearest node
-        G.add_edge(node1, nearest_neighbor, weight=distances[0][0])
+    # Ensure compartments are connected to only one eyeplate
+    for compartment, comp_pos in compartments.items():
+        distances = []
+        for eyeplate, eye_pos in eyeplates.items():
+            dist = np.linalg.norm(np.array(comp_pos) - np.array(eye_pos))
+            distances.append((dist, eyeplate))
+
+        # Connect each compartment to its nearest eyeplate
+        distances.sort()
+        nearest_eyeplate = distances[0][1]
+        G.add_edge(compartment, nearest_eyeplate, weight=distances[0][0])
 
     pos = nx.get_node_attributes(G, 'pos')
     return G, pos
