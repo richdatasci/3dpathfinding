@@ -106,8 +106,8 @@ def visualize_3d_graph_plotly(G, pos, path=None, active_eyeplates=None):
     # Build fig
     fig = go.Figure(data=edge_trace + path_edge_trace + [node_trace],
                     layout=go.Layout(title='Use mouse to zoom & rotate',
-                                     width=1200,  
-                                     height=800,  
+                                     width=1600,  
+                                     height=1000,  
                                      scene_camera=camera,  
                                      showlegend=False,
                                      scene=dict(xaxis=dict(showbackground=False),
@@ -155,7 +155,7 @@ def dijkstra_3d_with_eyeplates(graph, start, goal, active_eyeplates):
 
 # Streamlit app
 def main():
-    st.title("3D Ship Compartment Pathfinding Visualization")
+    st.title("3D Graph Pathfinding")
     
     st.sidebar.header("Graph Options")
     
