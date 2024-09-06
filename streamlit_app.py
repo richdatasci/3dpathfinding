@@ -9,21 +9,27 @@ import numpy as np
 def generate_graph():
     G = nx.Graph()
     
-    # Create four large nodes representing compartments of a ship
-    compartments = {'Compartment A': (0, 0, 0), 
-                    'Compartment B': (10, 0, 0), 
-                    'Compartment C': (0, 10, 0), 
-                    'Compartment D': (10, 10, 0)}
+    # Create four large nodes representing compartments of a ship at the bottom
+    bottom_compartments = {'Compartment A': (0, 0, 0), 
+                           'Compartment B': (10, 0, 0), 
+                           'Compartment C': (0, 10, 0), 
+                           'Compartment D': (10, 10, 0)}
     
-    # Add large compartment nodes
-    for compartment, position in compartments.items():
+    # Create four large nodes representing compartments at the top
+    top_compartments = {'Compartment E': (0, 20, 0),
+                        'Compartment F': (10, 20, 0),
+                        'Compartment G': (20, 20, 0),
+                        'Compartment H': (30, 20, 0)}
+    
+    # Add large compartment nodes (bottom and top compartments)
+    for compartment, position in {**bottom_compartments, **top_compartments}.items():
         G.add_node(compartment, pos=position, size=20, group='compartment')
 
     # Create smaller nodes representing eyeplates
     eyeplates = {}
     for i in range(1, 21):
         x, y, z = random.uniform(0, 10), random.uniform(0, 10), random.uniform(0, 10)
-        eyeplates[f'EP {i}'] = (x, y, z)
+        eyeplates[f'Eyeplate {i}'] = (x, y, z)
 
     # Add eyeplate nodes
     for eyeplate, position in eyeplates.items():
@@ -39,7 +45,8 @@ def generate_graph():
                     G.add_edge(node1, node2, weight=dist)
 
     # Ensure compartments are connected to only one eyeplate
-    for compartment, comp_pos in compartments.items():
+    all_compartments = {**bottom_compartments, **top_compartments}
+    for compartment, comp_pos in all_compartments.items():
         distances = []
         for eyeplate, eye_pos in eyeplates.items():
             dist = np.linalg.norm(np.array(comp_pos) - np.array(eye_pos))
@@ -53,7 +60,7 @@ def generate_graph():
     pos = nx.get_node_attributes(G, 'pos')
     return G, pos
 
-# Function to visualize the 3D graph with Plotly
+# visualise the 3D graph with Plotly
 def visualize_3d_graph_plotly(G, pos, path=None, active_eyeplates=None):
     edge_trace = []
     path_edge_trace = []
@@ -69,14 +76,14 @@ def visualize_3d_graph_plotly(G, pos, path=None, active_eyeplates=None):
         node_text.append(node)
         node_size.append(G.nodes[node]['size'])
     
-    # Add edges (connect nearest neighbors)
+    # Add edges (connect nearest neighbors, as mentioned by Tian)
     for edge in G.edges():
         x0, y0, z0 = pos[edge[0]]
         x1, y1, z1 = pos[edge[1]]
         edge_trace.append(go.Scatter3d(x=[x0, x1], y=[y0, y1], z=[z0, z1],
                                        mode='lines', line=dict(color='gray', width=2)))
 
-    # Highlight the path in blue if given
+    # Highlight the path in blue if found
     if path:
         path_edges = list(zip(path, path[1:]))
         for edge in path_edges:
@@ -93,10 +100,11 @@ def visualize_3d_graph_plotly(G, pos, path=None, active_eyeplates=None):
                               marker=dict(size=node_size, color='skyblue'),
                               hoverinfo='text')
 
+    # Set up the figure 
     fig = go.Figure(data=edge_trace + path_edge_trace + [node_trace],
-                    layout=go.Layout(title='3D Graph Visualisation - Compartments and Eyeplates',
-                                    width=1000,
-                                     height=1000,
+                    layout=go.Layout(title='3D Graph Visualization - Compartments and Eyeplates',
+                                     width=1500, 
+                                     height=1500, 
                                      showlegend=False,
                                      scene=dict(xaxis=dict(showbackground=False),
                                                 yaxis=dict(showbackground=False),
@@ -143,7 +151,7 @@ def dijkstra_3d_with_eyeplates(graph, start, goal, active_eyeplates):
 
 # Streamlit app
 def main():
-    st.title("3D Compartment Pathfinding")
+    st.title("3D Ship Compartment Pathfinding Visualization")
     
     st.sidebar.header("Graph Options")
     
@@ -172,3 +180,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
