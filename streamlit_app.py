@@ -29,7 +29,7 @@ def generate_graph():
     eyeplates = {}
     for i in range(1, 21):
         x, y, z = random.uniform(0, 10), random.uniform(0, 10), random.uniform(0, 10)
-        eyeplates[f'Eyeplate {i}'] = (x, y, z)
+        eyeplates[f'EP {i}'] = (x, y, z)
 
     # Add eyeplate nodes
     for eyeplate, position in eyeplates.items():
@@ -102,9 +102,9 @@ def visualize_3d_graph_plotly(G, pos, path=None, active_eyeplates=None):
 
     # Set up the figure 
     fig = go.Figure(data=edge_trace + path_edge_trace + [node_trace],
-                    layout=go.Layout(title='3D Graph Visualization - Compartments and Eyeplates',
-                                     width=1500, 
-                                     height=1500, 
+                    layout=go.Layout(title='3D Graph Visualisation - Compartment and Eyeplate Map',
+                                     width=1000, 
+                                     height=1000, 
                                      showlegend=False,
                                      scene=dict(xaxis=dict(showbackground=False),
                                                 yaxis=dict(showbackground=False),
