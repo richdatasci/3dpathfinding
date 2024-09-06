@@ -77,7 +77,7 @@ def generate_graph():
     pos = nx.get_node_attributes(G, 'pos')
     return G, pos
 
-# Function to visualize the 3D graph with Plotly
+# Function to visualise the 3D graph
 def visualize_3d_graph_plotly(G, pos, path=None, active_eyeplates=None):
     edge_trace = []
     path_edge_trace = []
