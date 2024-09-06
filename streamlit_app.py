@@ -29,7 +29,7 @@ def generate_graph():
     eyeplates = {}
     for i in range(1, 21):
         x, y, z = random.uniform(-30, 0), random.uniform(0, 10), random.uniform(-5, 5)  # Wider X range
-        eyeplates[f'Eyeplate {i}'] = (x, y, z)
+        eyeplates[f'EP {i}'] = (x, y, z)
 
     # Add eyeplate nodes
     for eyeplate, position in eyeplates.items():
@@ -103,12 +103,12 @@ def visualize_3d_graph_plotly(G, pos, path=None, active_eyeplates=None):
     # Camera view for landscape
     camera = dict(eye=dict(x=2.5, y=0.1, z=0.8))  # Adjust camera for a horizontal view
 
-    # Adjust width and height of the figure to 1000x1000
+    # Build fig
     fig = go.Figure(data=edge_trace + path_edge_trace + [node_trace],
-                    layout=go.Layout(title='3D Graph Visualization - Compartments and Eyeplates',
-                                     width=1000,  # Set the width to 1000 pixels
-                                     height=600,  # Set the height to 600 pixels to make it landscape
-                                     scene_camera=camera,  # Apply the camera for landscape view
+                    layout=go.Layout(title='Use mouse to zoom & rotate',
+                                     width=1200,  
+                                     height=800,  
+                                     scene_camera=camera,  
                                      showlegend=False,
                                      scene=dict(xaxis=dict(showbackground=False),
                                                 yaxis=dict(showbackground=False),
