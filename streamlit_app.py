@@ -10,16 +10,16 @@ def generate_graph():
     G = nx.Graph()
     
     # Create four large nodes representing compartments below the eyeplates (z = -10)
-    bottom_compartments = {'Compartment A': (0, 0, -10), 
-                           'Compartment B': (10, 0, -10), 
-                           'Compartment C': (0, 10, -10), 
-                           'Compartment D': (10, 10, -10)}
+    bottom_compartments = {'Compartment A': (-30, 0, -10), 
+                           'Compartment B': (-20, 0, -10), 
+                           'Compartment C': (-10, 0, -10), 
+                           'Compartment D': (0, 0, -10)}
     
     # Create four large nodes representing compartments above the eyeplates (z = 10)
-    top_compartments = {'Compartment E': (0, 0, 10),
-                        'Compartment F': (10, 0, 10),
-                        'Compartment G': (0, 10, 10),
-                        'Compartment H': (10, 10, 10)}
+    top_compartments = {'Compartment E': (-30, 10, 10),
+                        'Compartment F': (-20, 10, 10),
+                        'Compartment G': (-10, 10, 10),
+                        'Compartment H': (0, 10, 10)}
     
     # Add large compartment nodes (bottom and top compartments)
     for compartment, position in {**bottom_compartments, **top_compartments}.items():
@@ -28,8 +28,8 @@ def generate_graph():
     # Create smaller nodes representing eyeplates with random Z-values
     eyeplates = {}
     for i in range(1, 21):
-        x, y, z = random.uniform(0, 10), random.uniform(0, 10), random.uniform(-5, 5)  # Random Z between -5 and 5
-        eyeplates[f'EP {i}'] = (x, y, z)
+        x, y, z = random.uniform(-30, 0), random.uniform(0, 10), random.uniform(-5, 5)  # Wider X range
+        eyeplates[f'Eyeplate {i}'] = (x, y, z)
 
     # Add eyeplate nodes
     for eyeplate, position in eyeplates.items():
@@ -41,7 +41,7 @@ def generate_graph():
         for j, (node2, pos2) in enumerate(all_eyeplates):
             if node1 != node2:
                 dist = np.linalg.norm(np.array(pos1) - np.array(pos2))
-                if dist < 5:  # Connect eyeplates within a certain distance threshold
+                if dist < 10:  # Increase connection threshold slightly for a landscape layout
                     G.add_edge(node1, node2, weight=dist)
 
     # Ensure compartments are connected to only one eyeplate
@@ -60,7 +60,7 @@ def generate_graph():
     pos = nx.get_node_attributes(G, 'pos')
     return G, pos
 
-# Function to visualise the 3D graph with Plotly
+# Function to visualize the 3D graph with Plotly
 def visualize_3d_graph_plotly(G, pos, path=None, active_eyeplates=None):
     edge_trace = []
     path_edge_trace = []
@@ -100,11 +100,15 @@ def visualize_3d_graph_plotly(G, pos, path=None, active_eyeplates=None):
                               marker=dict(size=node_size, color='skyblue'),
                               hoverinfo='text')
 
-    # Build visualisation
+    # Camera view for landscape
+    camera = dict(eye=dict(x=2.5, y=0.1, z=0.8))  # Adjust camera for a horizontal view
+
+    # Adjust width and height of the figure to 1000x1000
     fig = go.Figure(data=edge_trace + path_edge_trace + [node_trace],
-                    layout=go.Layout(title='Use the mouse to zoom in/out or rotate graph',
-                                     width=1200,  # Set the width to 1000 pixels
-                                     height=1200,  # Set the height to 1000 pixels
+                    layout=go.Layout(title='3D Graph Visualization - Compartments and Eyeplates',
+                                     width=1000,  # Set the width to 1000 pixels
+                                     height=600,  # Set the height to 600 pixels to make it landscape
+                                     scene_camera=camera,  # Apply the camera for landscape view
                                      showlegend=False,
                                      scene=dict(xaxis=dict(showbackground=False),
                                                 yaxis=dict(showbackground=False),
