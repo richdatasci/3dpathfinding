@@ -25,10 +25,10 @@ def generate_graph():
     for compartment, position in {**bottom_compartments, **top_compartments}.items():
         G.add_node(compartment, pos=position, size=20, group='compartment')
 
-    # Create smaller nodes representing eyeplates (z = 0)
+    # Create smaller nodes representing eyeplates with random Z-values
     eyeplates = {}
     for i in range(1, 21):
-        x, y, z = random.uniform(0, 10), random.uniform(0, 10), 0  # Z-axis at 0 for eyeplates
+        x, y, z = random.uniform(0, 10), random.uniform(0, 10), random.uniform(-5, 5)  # Random Z between -5 and 5
         eyeplates[f'Eyeplate {i}'] = (x, y, z)
 
     # Add eyeplate nodes
@@ -52,7 +52,7 @@ def generate_graph():
             dist = np.linalg.norm(np.array(comp_pos) - np.array(eye_pos))
             distances.append((dist, eyeplate))
 
-        # Connect each compartment to its nearest eyeplate (as suggested by Tian)
+        # Connect each compartment to its nearest eyeplate
         distances.sort()
         nearest_eyeplate = distances[0][1]
         G.add_edge(compartment, nearest_eyeplate, weight=distances[0][0])
@@ -100,11 +100,11 @@ def visualize_3d_graph_plotly(G, pos, path=None, active_eyeplates=None):
                               marker=dict(size=node_size, color='skyblue'),
                               hoverinfo='text')
 
-    # Build interactive map
+    # Adjust width and height of the figure to 1000x1000
     fig = go.Figure(data=edge_trace + path_edge_trace + [node_trace],
                     layout=go.Layout(title='3D Graph Visualization - Compartments and Eyeplates',
-                                     width=1000,
-                                     height=1000,
+                                     width=1000,  # Set the width to 1000 pixels
+                                     height=1000,  # Set the height to 1000 pixels
                                      showlegend=False,
                                      scene=dict(xaxis=dict(showbackground=False),
                                                 yaxis=dict(showbackground=False),
@@ -180,3 +180,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
