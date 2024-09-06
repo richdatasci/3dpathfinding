@@ -24,28 +24,28 @@ def generate_graph():
     for compartment, position in {**bottom_compartments, **top_compartments}.items():
         G.add_node(compartment, pos=position, size=20, group='compartment')
 
-    # Define fixed positions for 20 eyeplates between the compartments
+    # Define fixed 3D positions for 20 eyeplates (EPs)
     eyeplates = {
-        'EP 1': (-25, 2.5, 0),   
-        'EP 2': (-15, 2.5, 0),   
-        'EP 3': (-5, 2.5, 0),    
-        'EP 4': (-2, 7.5, 0),   
-        'EP 5': (-28, 7.5, 0),   
+        'EP 1': (-25, 2.5, 1),    # Slightly above/below Z=0
+        'EP 2': (-15, 2.5, -1), 
+        'EP 3': (-5, 2.5, 2),    
+        'EP 4': (-2, 7.5, -2),   
+        'EP 5': (-28, 7.5, 3),   
         'EP 6': (-22, 3.5, 0),   
-        'EP 7': (-12, 6.0, 0),
-        'EP 8': (-8, 2.5, 0),
+        'EP 7': (-12, 6.0, 1),
+        'EP 8': (-8, 2.5, -1),
         'EP 9': (-6, 7.0, 0),
-        'EP 10': (-14, 6.0, 0),
-        'EP 11': (-27, 1.0, 0),
-        'EP 12': (-16, 1.0, 0),
-        'EP 13': (-7, 1.0, 0),
-        'EP 14': (-9, 5.0, 0),
-        'EP 15': (-19, 5.0, 0),
+        'EP 10': (-14, 6.0, -3),
+        'EP 11': (-27, 1.0, 1),
+        'EP 12': (-16, 1.0, -2),
+        'EP 13': (-7, 1.0, 1),
+        'EP 14': (-9, 5.0, -1),
+        'EP 15': (-19, 5.0, 2),
         'EP 16': (-22, 8.0, 0),
-        'EP 17': (-12, 8.0, 0),
-        'EP 18': (-10, 9.0, 0),
+        'EP 17': (-12, 8.0, -1),
+        'EP 18': (-10, 9.0, 1),
         'EP 19': (-5, 9.0, 0),
-        'EP 20': (-25, 9.0, 0)
+        'EP 20': (-25, 9.0, -1)
     }
 
     # Add eyeplate nodes with fixed positions
@@ -123,8 +123,8 @@ def visualize_3d_graph_plotly(G, pos, path=None, active_eyeplates=None):
     # Adjust width and height of the figure to 1000x1000
     fig = go.Figure(data=edge_trace + path_edge_trace + [node_trace],
                     layout=go.Layout(title='Use mouse to zoom and rotate',
-                                     width=2500,  
-                                     height=1000,  
+                                     width=1000,  # Set the width to 1000 pixels
+                                     height=600,  # Set the height to 600 pixels to make it landscape
                                      scene_camera=camera,  # Apply the camera for landscape view
                                      showlegend=False,
                                      scene=dict(xaxis=dict(showbackground=False),
@@ -172,7 +172,7 @@ def dijkstra_3d_with_eyeplates(graph, start, goal, active_eyeplates):
 
 # Streamlit app
 def main():
-    st.title("3D Ship Compartment Pathfinding Visualization")
+    st.title("3D Compartment Pathfinding")
     
     st.sidebar.header("Graph Options")
     
