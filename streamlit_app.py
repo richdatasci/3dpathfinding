@@ -23,7 +23,7 @@ def generate_graph():
     eyeplates = {}
     for i in range(1, 21):
         x, y, z = random.uniform(0, 10), random.uniform(0, 10), random.uniform(0, 10)
-        eyeplates[f'Eyeplate {i}'] = (x, y, z)
+        eyeplates[f'EP {i}'] = (x, y, z)
 
     # Add eyeplate nodes
     for eyeplate, position in eyeplates.items():
@@ -94,7 +94,9 @@ def visualize_3d_graph_plotly(G, pos, path=None, active_eyeplates=None):
                               hoverinfo='text')
 
     fig = go.Figure(data=edge_trace + path_edge_trace + [node_trace],
-                    layout=go.Layout(title='3D Graph Visualization - Compartments and Eyeplates',
+                    layout=go.Layout(title='3D Graph Visualisation - Compartments and Eyeplates',
+                                    width=1000,
+                                     height=1000,
                                      showlegend=False,
                                      scene=dict(xaxis=dict(showbackground=False),
                                                 yaxis=dict(showbackground=False),
@@ -141,7 +143,7 @@ def dijkstra_3d_with_eyeplates(graph, start, goal, active_eyeplates):
 
 # Streamlit app
 def main():
-    st.title("3D Ship Compartment Pathfinding Visualization")
+    st.title("3D Compartment Pathfinding")
     
     st.sidebar.header("Graph Options")
     
