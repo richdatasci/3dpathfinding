@@ -172,7 +172,7 @@ def dijkstra_3d_with_eyeplates(graph, start, goal, active_eyeplates):
 
 # Streamlit app
 def main():
-    st.title("3D Compartment Pathfinding")
+    st.title("3D Ship Compartment Pathfinding Visualization")
     
     st.sidebar.header("Graph Options")
     
@@ -181,6 +181,23 @@ def main():
     
     # Select start and goal nodes (only compartments are valid start/end)
     compartments = [n for n in G.nodes if G.nodes[n]['group'] == 'compartment']
-    eyeplates = [n for n
+    eyeplates = [n for n in G.nodes if G.nodes[n]['group'] == 'eyeplate']
+    
+    start_node = st.sidebar.selectbox("Select Start Compartment:", compartments)
+    goal_node = st.sidebar.selectbox("Select Goal Compartment:", compartments)
 
+    # Allow user to turn eyeplates on/off
+    active_eyeplates = st.sidebar.multiselect("Select Active Eyeplates:", eyeplates, default=eyeplates)
 
+    if st.sidebar.button("Find Path"):
+        shortest_path, shortest_distance = dijkstra_3d_with_eyeplates(G, start_node, goal_node, active_eyeplates)
+        st.write(f"**Shortest path from {start_node} to {goal_node} via Eyeplates:** {shortest_path}")
+        st.write(f"**Shortest distance:** {shortest_distance}")
+        fig = visualize_3d_graph_plotly(G, pos, path=shortest_path, active_eyeplates=active_eyeplates)
+    else:
+        fig = visualize_3d_graph_plotly(G, pos, active_eyeplates=active_eyeplates)
+
+    st.plotly_chart(fig)
+
+if __name__ == "__main__":
+    main()
