@@ -145,7 +145,7 @@ def visualize_3d_graph_plotly(G, pos, path=None, active_eyeplates=None):
         node_x.append(x)
         node_y.append(y)
         node_z.append(z)
-        node_text.append(f"{node} (Capacity: {G.nodes[node]['capacity']}kg)" if 'capacity' in G.nodes[node] else node)
+        node_text.append(f"{node} (R: {G.nodes[node]['capacity']}kg)" if 'capacity' in G.nodes[node] else node)
         node_size.append(G.nodes[node]['size'])
         if 'capacity' in G.nodes[node]:
             node_capacity.append(G.nodes[node]['capacity'])
