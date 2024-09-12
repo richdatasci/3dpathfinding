@@ -49,21 +49,11 @@ def generate_graph():
         'EP 20': (-25, 9.0, -1)
     }
 
-    # Assign fixed capacities to each EP (either 3000kg, 1600kg, or 8000kg)
-    capacities = [3000, 1600, 8000]
-    for eyeplate in eyeplates:
-        G.add_node(eyeplate, pos=eyeplates[eyeplate], size=10, group='eyeplate', capacity=random.choice(capacities))
+# Ensure EPs connected to compartments have a capacity of 8000kg
+    compartment_connections = []
+    capacities = [3000, 1600]  # Other EPs will have capacities 3000kg or 1600kg
 
-    # Connect eyeplates to each other
-    all_eyeplates = list(eyeplates.items())
-    for i, (node1, pos1) in enumerate(all_eyeplates):
-        for j, (node2, pos2) in enumerate(all_eyeplates):
-            if node1 != node2:
-                dist = np.linalg.norm(np.array(pos1) - np.array(pos2))
-                if dist < 10:  # Connect eyeplates within a certain distance threshold
-                    G.add_edge(node1, node2, weight=dist)
-
-    # Ensure compartments are connected to only one eyeplate
+    # Connect each compartment to its nearest eyeplate (ensure those EPs get 8000kg capacity)
     all_compartments = {**bottom_compartments, **top_compartments}
     for compartment, comp_pos in all_compartments.items():
         distances = []
@@ -71,10 +61,27 @@ def generate_graph():
             dist = np.linalg.norm(np.array(comp_pos) - np.array(eye_pos))
             distances.append((dist, eyeplate))
 
-        # Connect each compartment to its nearest eyeplate
         distances.sort()
         nearest_eyeplate = distances[0][1]
         G.add_edge(compartment, nearest_eyeplate, weight=distances[0][0])
+        G.nodes[nearest_eyeplate]['capacity'] = 8000  # Assign 8000kg capacity to connected EP
+        compartment_connections.append(nearest_eyeplate)
+
+    # Assign random capacities to the remaining EPs (3000kg or 1600kg)
+    for eyeplate in eyeplates:
+        if eyeplate not in compartment_connections:
+            G.add_node(eyeplate, pos=eyeplates[eyeplate], size=10, group='eyeplate', capacity=random.choice(capacities))
+        else:
+            G.add_node(eyeplate, pos=eyeplates[eyeplate], size=10, group='eyeplate')
+
+    # Connect the remaining eyeplates to each other
+    all_eyeplates = list(eyeplates.items())
+    for i, (node1, pos1) in enumerate(all_eyeplates):
+        for j, (node2, pos2) in enumerate(all_eyeplates):
+            if node1 != node2:
+                dist = np.linalg.norm(np.array(pos1) - np.array(pos2))
+                if dist < 10:  # Connect eyeplates within a certain distance threshold
+                    G.add_edge(node1, node2, weight=dist)
 
     pos = nx.get_node_attributes(G, 'pos')
     return G, pos
