@@ -49,9 +49,10 @@ def generate_graph():
         'EP 20': (-25, 9.0, -1)
     }
 
-    # Assign random weight capacities to each eyeplate (between 500 and 2000 kg)
+    # Assign fixed capacities to each EP (either 3000kg, 1600kg, or 8000kg)
+    capacities = [3000, 1600, 8000]
     for eyeplate in eyeplates:
-        G.add_node(eyeplate, pos=eyeplates[eyeplate], size=10, group='eyeplate', capacity=random.randint(500, 2000))
+        G.add_node(eyeplate, pos=eyeplates[eyeplate], size=10, group='eyeplate', capacity=random.choice(capacities))
 
     # Connect eyeplates to each other
     all_eyeplates = list(eyeplates.items())
