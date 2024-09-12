@@ -3,6 +3,7 @@ import networkx as nx
 import plotly.graph_objects as go
 import heapq
 import numpy as np
+import random
 
 # Function to generate the graph with compartments and fixed eyeplates
 def generate_graph():
@@ -48,9 +49,9 @@ def generate_graph():
         'EP 20': (-25, 9.0, -1)
     }
 
-    # Add eyeplate nodes with fixed positions
-    for eyeplate, position in eyeplates.items():
-        G.add_node(eyeplate, pos=position, size=10, group='eyeplate')
+    # Assign random weight capacities to each eyeplate (between 500 and 2000 kg)
+    for eyeplate in eyeplates:
+        G.add_node(eyeplate, pos=eyeplates[eyeplate], size=10, group='eyeplate', capacity=random.randint(500, 2000))
 
     # Connect eyeplates to each other
     all_eyeplates = list(eyeplates.items())
@@ -77,6 +78,58 @@ def generate_graph():
     pos = nx.get_node_attributes(G, 'pos')
     return G, pos
 
+# Dijkstra's Algorithm with weight capacity check and vertical movement penalty
+def dijkstra_3d_with_weight_and_penalty(graph, start, goal, active_eyeplates, component_weight, penalty=1.5):
+    # Filter the graph based on active eyeplates
+    filtered_graph = graph.copy()
+
+    # Remove inactive eyeplates
+    for node in list(filtered_graph.nodes):
+        if 'EP' in node and node not in active_eyeplates:
+            filtered_graph.remove_node(node)
+
+    queue = [(0, start)]
+    distances = {node: float('inf') for node in filtered_graph.nodes}
+    distances[start] = 0
+    previous_nodes = {node: None for node in filtered_graph.nodes}
+
+    pos = nx.get_node_attributes(filtered_graph, 'pos')
+
+    while queue:
+        current_distance, current_node = heapq.heappop(queue)
+
+        if current_node == goal:
+            break
+
+        for neighbor, attributes in filtered_graph[current_node].items():
+            # Get the capacity of the neighbor (if it's an eyeplate)
+            if 'capacity' in filtered_graph.nodes[neighbor] and filtered_graph.nodes[neighbor]['capacity'] < component_weight:
+                continue  # Skip this node if the component is too heavy for the EP
+
+            # Calculate the Euclidean distance (normal weight)
+            weight = attributes['weight']
+
+            # Apply a vertical movement penalty if there is a Z-coordinate difference
+            z_diff = abs(pos[current_node][2] - pos[neighbor][2])  # Difference in Z-axis
+            if z_diff > 0:
+                weight += penalty * z_diff  # Apply the penalty
+
+            distance = current_distance + weight
+
+            if distance < distances[neighbor]:
+                distances[neighbor] = distance
+                previous_nodes[neighbor] = current_node
+                heapq.heappush(queue, (distance, neighbor))
+
+    # Reconstruct the shortest path
+    path = []
+    current_node = goal
+    while current_node is not None:
+        path.insert(0, current_node)
+        current_node = previous_nodes[current_node]
+
+    return path, distances[goal]
+
 # Function to visualise the 3D graph
 def visualize_3d_graph_plotly(G, pos, path=None, active_eyeplates=None):
     edge_trace = []
@@ -84,15 +137,18 @@ def visualize_3d_graph_plotly(G, pos, path=None, active_eyeplates=None):
     node_x, node_y, node_z = [], [], []
     node_text = []
     node_size = []
+    node_capacity = []
 
     for node in G.nodes():
         x, y, z = pos[node]
         node_x.append(x)
         node_y.append(y)
         node_z.append(z)
-        node_text.append(node)
+        node_text.append(f"{node} (Capacity: {G.nodes[node]['capacity']}kg)" if 'capacity' in G.nodes[node] else node)
         node_size.append(G.nodes[node]['size'])
-    
+        if 'capacity' in G.nodes[node]:
+            node_capacity.append(G.nodes[node]['capacity'])
+
     # Add edges (connect nearest neighbors)
     for edge in G.edges():
         x0, y0, z0 = pos[edge[0]]
@@ -119,60 +175,32 @@ def visualize_3d_graph_plotly(G, pos, path=None, active_eyeplates=None):
 
     # Camera view for landscape
     camera = dict(eye=dict(x=2.5, y=0.1, z=0.8))  # Adjust camera for a horizontal view
-
     fig = go.Figure(data=edge_trace + path_edge_trace + [node_trace],
                     layout=go.Layout(title='Use mouse to zoom and rotate',
-                                     width=1400,  
-                                     height=800,  
-                                     scene_camera=camera,  
+                                     width=2500,  # Set the width to 2500 pixels
+                                     height=1500,  # Set the height to 1500 pixels
+                                     scene_camera=camera,  # Apply the camera for landscape view
                                      showlegend=False,
                                      scene=dict(xaxis=dict(showbackground=False),
                                                 yaxis=dict(showbackground=False),
                                                 zaxis=dict(showbackground=False))))
     return fig
 
-# Dijkstra's Algorithm to find the path through Eyeplates
-def dijkstra_3d_with_eyeplates(graph, start, goal, active_eyeplates):
-    # Filter the graph based on active eyeplates
-    filtered_graph = graph.copy()
-    
-    # Remove inactive eyeplates
-    for node in list(filtered_graph.nodes):
-        if 'EP' in node and node not in active_eyeplates:
-            filtered_graph.remove_node(node)
-
-    queue = [(0, start)]
-    distances = {node: float('inf') for node in filtered_graph.nodes}
-    distances[start] = 0
-    previous_nodes = {node: None for node in filtered_graph.nodes}
-
-    while queue:
-        current_distance, current_node = heapq.heappop(queue)
-
-        if current_node == goal:
-            break
-
-        for neighbor, attributes in filtered_graph[current_node].items():
-            weight = attributes['weight']
-            distance = current_distance + weight
-
-            if distance < distances[neighbor]:
-                distances[neighbor] = distance
-                previous_nodes[neighbor] = current_node
-                heapq.heappush(queue, (distance, neighbor))
-
-    path = []
-    current_node = goal
-    while current_node is not None:
-        path.insert(0, current_node)
-        current_node = previous_nodes[current_node]
-
-    return path, distances[goal]
-
 # Streamlit app
 def main():
     st.title("3D Compartment Pathfinding")
-    
+
+    # Component selection
+    st.sidebar.header("Select Component")
+    components = {
+        'Distillation Pump (2000kg)': 2000,
+        'Battery (500kg)': 500,
+        'Air Pump (1000kg)': 1000,
+        'Thermal Shield (100kg)': 100
+    }
+    selected_component = st.sidebar.selectbox("Choose a component:", list(components.keys()))
+    component_weight = components[selected_component]
+
     st.sidebar.header("Graph Options")
     
     # Generate the graph with compartments and eyeplates
@@ -189,7 +217,7 @@ def main():
     active_eyeplates = st.sidebar.multiselect("Select Active Eyeplates:", eyeplates, default=eyeplates)
 
     if st.sidebar.button("Find Path"):
-        shortest_path, shortest_distance = dijkstra_3d_with_eyeplates(G, start_node, goal_node, active_eyeplates)
+        shortest_path, shortest_distance = dijkstra_3d_with_weight_and_penalty(G, start_node, goal_node, active_eyeplates, component_weight)
         st.write(f"**Shortest path from {start_node} to {goal_node} via Eyeplates:** {shortest_path}")
         st.write(f"**Shortest distance:** {shortest_distance}")
         fig = visualize_3d_graph_plotly(G, pos, path=shortest_path, active_eyeplates=active_eyeplates)
@@ -201,3 +229,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
