@@ -56,9 +56,9 @@ def generate_graph():
         'EP 27': (-5.723, 11.33, -7.43)
     }
 
-# Ensure EPs connected to compartments have a capacity of 8000kg
+    # Assign fixed capacities to EPs
+    capacities = [3000, 1600]  # All EPs not connected to compartments will have 3000kg or 1600kg capacities
     compartment_connections = []
-    capacities = [3000, 1600]  # Other EPs will have capacities 3000kg or 1600kg
 
     # Connect each compartment to its nearest eyeplate (ensure those EPs get 8000kg capacity)
     all_compartments = {**bottom_compartments, **top_compartments}
@@ -77,17 +77,20 @@ def generate_graph():
     # Assign random capacities to the remaining EPs (3000kg or 1600kg)
     for eyeplate in eyeplates:
         if eyeplate not in compartment_connections:
-            G.add_node(eyeplate, pos=eyeplates[eyeplate], size=10, group='eyeplate', capacity=random.choice(capacities))
+            G.add_node(eyeplate, pos=eyeplates[eyeplate], size=10, group='eyeplate', capacity=np.random.choice(capacities))
         else:
             G.add_node(eyeplate, pos=eyeplates[eyeplate], size=10, group='eyeplate')
 
-    # Connect the remaining eyeplates to each other
+    # Threshold distance for connecting EPs
+    threshold_distance = 10  # Can be adjusted
+    
+    # Connect eyeplates to each other based on Euclidean distance and the threshold
     all_eyeplates = list(eyeplates.items())
     for i, (node1, pos1) in enumerate(all_eyeplates):
         for j, (node2, pos2) in enumerate(all_eyeplates):
             if node1 != node2:
                 dist = np.linalg.norm(np.array(pos1) - np.array(pos2))
-                if dist < 10:  # Connect eyeplates within a certain distance threshold
+                if dist <= threshold_distance:  # Connect if within threshold
                     G.add_edge(node1, node2, weight=dist)
 
     pos = nx.get_node_attributes(G, 'pos')
