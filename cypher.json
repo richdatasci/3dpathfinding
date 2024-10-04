@@ -1,0 +1,67 @@
+{
+  "statements": [
+    {
+      "statement": "CREATE (dsrv:Vehicle {name: 'DSRV', type: 'Submersible', purpose: 'Submarine Rescue', capacity: '24 personnel', weight: '68,836 lbs', depth_rating: 'Maximum operating depth of 5,000 feet', description: 'A small, highly maneuverable submersible designed to rescue personnel from disabled submarines'})"
+    },
+    {
+      "statement": "CREATE (vs:Subsystem {name: 'Vehicle Subsystem', type: 'Subsystem', description: 'Includes structure, propulsion, power, ballast, life support', material: 'High-strength steel HY-140, aluminum, and titanium', max_speed: '4.1 knots', components: 'Structure, Propulsion, Power, Ballast, Life Support'})"
+    },
+    {
+      "statement": "CREATE (scs:Subsystem {name: 'Sensors and Control Subsystem', type: 'Subsystem', description: 'Provides control over angular and linear movement, optics, navigation, sonars, and communications', sensors: 'Optics, Navigation, Sonars', control_system: 'Provides 6 degrees of freedom control', features: 'Feedback loops from sensors to optimize control during maneuvers'})"
+    },
+    {
+      "statement": "CREATE (ss:Subsystem {name: 'Support Subsystem', type: 'Subsystem', description: 'Ground transport, aircraft loading, shipboard handling, and servicing', transport_methods: 'Land Transport Vehicle, Ship of Opportunity, ASR, Mother Submarine', ground_support: 'Includes winch, dolly, and cradle systems for transportation'})"
+    },
+    {
+      "statement": "CREATE (as:Subsystem {name: 'Ancillary Support Systems', type: 'Subsystem', description: 'Transport aircraft, support vessels, home port facilities', additional_support: 'Truck-tractors, trailers, forklifts, loading cranes', home_port: 'Facilities include maintenance bays, personnel quarters, and an overhead bridge crane'})"
+    },
+    {
+      "statement": "CREATE (aircraft:Transport {name: 'C-141A Aircraft', type: 'Transport Method', description: 'Used to airlift DSRV to remote launch ports', capacity: 'Three aircraft needed to transport a complete DSRV system', use_case: 'Rapid deployment to distant or remote rescue sites'})"
+    },
+    {
+      "statement": "CREATE (msub:Transport {name: 'Mother Submarine', type: 'Transport Method', description: 'Nuclear-powered fleet submarine capable of transporting and supporting the DSRV', operational_modes: 'Submerged transport of DSRV for under-ice or adverse weather rescues', components: 'Attachment points for DSRV cradle'})"
+    },
+    {
+      "statement": "CREATE (asr:Transport {name: 'ASR', type: 'Support Vessel', description: 'Specially designed surface vessel for DSRV operations', features: 'Dual hoist cranes, deck space for two DSRVs, stowage for support van', capabilities: 'Provides battery recharging, air supply, and crew quarters'})"
+    },
+    {
+      "statement": "CREATE (so:Transport {name: 'Ship of Opportunity', type: 'Transport Method', description: 'Surface vessels used when ASR or mother submarines are not available', role: 'Carries DSRV on deck or tows it submerged to the rescue site', equipment_needed: 'Requires 50-ton crane for loading DSRV onto the ship'})"
+    },
+    {
+      "statement": "CREATE (crew:Person {role: 'Crew', description: 'DSRV operating and maintenance crew, 16 people', responsibilities: 'Operating DSRV systems, maintaining life support, ensuring vehicle safety during rescue missions', skills: 'Navigation, engineering, life support maintenance'})"
+    },
+    {
+      "statement": "CREATE (rescuee:Person {role: 'Rescuee', description: 'Trapped personnel from the disabled submarine', transport_method: 'Rescuees are transported from disabled submarine to support vessel', capacity: '24 personnel per trip'})"
+    },
+    {
+      "statement": "CREATE (van:Equipment {name: 'Support Van', type: 'Support Equipment', description: 'Provides servicing, battery charging, and other support operations for DSRV', features: 'Recharges batteries, refills air supply, performs system checkouts', deployment_method: 'Can be airlifted or carried aboard the ASR or ship of opportunity'})"
+    },
+    {
+      "statement": "CREATE (boiler:Component {name: 'Boiler System', type: 'Life Support Component', description: 'Part of the life support system, regulates environmental controls', operation: 'Maintains temperature and humidity, provides oxygen and nitrogen'})"
+    },
+    {
+      "statement": "CREATE (sensors:Component {name: 'Sensor Array', type: 'Navigation and Control Component', description: 'Provides real-time data for navigation, obstacle detection, and vehicle orientation', components: 'Inertial navigator, doppler sonar, depth sonar, altitude sonar', function: 'Monitors vehicle’s spatial position, heading, and nearby objects'})"
+    },
+    {
+      "statement": "CREATE (propulsion:Component {name: 'Propulsion System', type: 'Movement Component', description: 'Controls vehicle movement through water', components: 'Main propeller, vertical and horizontal thrusters', speed: 'Maximum forward speed of 4.1 knots'})"
+    },
+    {
+      "statement": "CREATE (dsrv)-[:INCLUDES]->(vs), (dsrv)-[:INCLUDES]->(scs), (dsrv)-[:INCLUDES]->(ss), (dsrv)-[:INCLUDES]->(as)"
+    },
+    {
+      "statement": "CREATE (dsrv)-[:TRANSPORTED_BY]->(aircraft), (dsrv)-[:TRANSPORTED_BY]->(msub), (dsrv)-[:TRANSPORTED_BY]->(asr), (dsrv)-[:TRANSPORTED_BY]->(so)"
+    },
+    {
+      "statement": "CREATE (dsrv)-[:OPERATED_BY]->(crew), (dsrv)-[:RESCUES]->(rescuee)"
+    },
+    {
+      "statement": "CREATE (dsrv)-[:SUPPORTED_BY]->(van)"
+    },
+    {
+      "statement": "CREATE (vs)-[:CONTAINS]->(propulsion), (vs)-[:CONTAINS]->(boiler)"
+    },
+    {
+      "statement": "CREATE (scs)-[:CONTAINS]->(sensors)"
+    }
+  ]
+}
