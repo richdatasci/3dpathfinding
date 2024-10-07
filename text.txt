@@ -1,0 +1,1930 @@
+ORIGINAL
+
+3-26
+
+NAVSHIPS 0905-120-0010
+
+0
+
+3-87. SUPPORT VESSEL INTERFACES.
+3-88. Included in this category are those components, either integral with the DSRV
+structure or attached as required, that provide the physical interfaces between the
+vehicle and the support vessel.
+3-89. ASR OR SHIP OF OPPORTU1'HTY.
+
+The DSRV regular lift fittings provide
+
+sling attachment points when hoisting the vehicle from dockside onto either the ASR
+or the ship of opportunity. When on board , the DSRV regular support fittings are
+latched to a cradle/dolly.
+3-90. Special hydraulically actuated retrieve! arms, attached forward at points on the
+port and starboard sides of the DSRV , serve as positioning devices when submerged
+recovery is made through the ASR center well. These arms may be removed when not
+operating from the ASR. In operation, a rectangular platform, suspended by cables
+at each corner and carrying a support cradle, is lowered through the well by the ASR
+overhead bridge crane. The DSRV maneuvers through the aft pair of cables, extends
+
+)
+
+the retriever arms outboard when clear of these cables, and uses the arms to capture the forward cables. With these forward cables engaged, the DSRV thrusts down until
+the support fitti~gs engage the cradle latches. Thus secured, the vehicle is hoisted to
+deck level.
+3-91. MOTHER SUBMARINE, The DSRV is hoisted atop the mother submarine
+from dockside, using a sling attached to the regular lift fittings and a locally available
+hoisting unit. In the piggyback position on the mother submarine, the DSRV regular
+support fittings latch into four pylons bolted to the submarine hull. In this position,
+the DSRV transfer skirt is mated to the submarine's aft rescue hatch. The same holddowns used for rescue mating may be used as an adjunct to the pylon latch mechanisms.
+
+0
+ORIGINAL
+
+8- 27
+
+\.)
+
+NAVSHIPS 0905 - 120-0010
+
+Section 4
+SENSORS AND CONTROL SUBSYSTEM
+
+4-1.
+
+GENERAL.
+
+4-2.
+
+The DSRV sensors and control system, summarized in terms of its principal
+
+elements in Section 2, is described in greater depth in this section. Order of presentation is the same and conforms to the following a r rangement:
+• OPTICS
+TV Cameras
+Still Camera
+Lights
+Viewports
+
+0
+
+• NAVIGATION
+Inertial Navigator
+Doppler Sonar
+Navigation Data Plotter
+Altitude/Depth Sonar
+Depth Pressure Transducer
+Transponder Interrogation Sonar
+Homing Transponder
+
+• SONARS
+Horizontal Obstacle Sonar
+Vertical Obstacle Sonar
+Short Range Sonar
+
+• COMMUNICATIONS
+UHF Radio
+Underwater Telephone
+Directional Listening Hydrophones
+Internal Communications
+
+J
+ORIGINAL
+
+4-1
+
+NAVSHIPS 0905-120-0010
+
+filP..
+
+•
+
+•
+
+COMPU, ERS .. ( \ ~
+Central P r ocet s ~ g Computer
+Timing Coor di nator
+~
+
+Computer Control and Display Panel
+.
+
+\
+
+Autop, lot Digital\Differential Analyzer
+o VEHICLE SYSTEMS OPERATING INDICATORS
+
+Propulsion
+Ballast
+Mating
+Life Support
+
+Power
+•
+
+SHIP CONTROL
+Control Regimes
+Control Modes
+Emergency Jettison
+
+4- 3.
+
+The DSRV is equipped with an array of sensing devices that gives the pilot and
+
+copilot current information on conditions prevailing in every system of the vehicle
+and in the adjacent ocean environment, on the position of the vehicle relative to known
+reference points, and on changes (and rates of change) affecting this position. Information obtained by these sensors is displayed by meters, sonar and television screens,
+digital readouts, plotters, sound reproducers, and other devices . In addition to actuating these display devices, some of this information is computer-processed and routed
+to ship control equipment where it serves as feedback for automatic corrective action.
+4-4. Ship controls provide the pilot and copilot with mechanisms for maneuvering the
+vehicle along its three linearaxes, for rotating it around these axes, and for operating
+all other subsystems aboard the vehicle. Controls have been designed with various
+levels of redundancy to provide backup modes of operation in the event of component
+failure.
+4-5.
+
+OPTICS (FIG. 4-1).
+
+4-6. The DSRV optics provide a capability for visual sighting, pictorially displaying,
+and photographically r~cording scenes and events in the ocean environment immediately
+ORIGINAL
+
+4 -2
+
+NAVSHIPS 0905-120-0010
+
+()
+
+TV MONITOR
+ANO SELECT
+PANELS
+
+PAN ANO TILT
+EXTENDER
+CONTROL
+PANEL
+
+SPECIAL
+EFFECTS
+UNIT
+PANEL
+
+0
+
+RIGHT ANGLE
+TELEVISION
+CAMERA
+
+RIGHT ANGLE
+TELEVISION
+CAMERA
+
+TRAPEZE
+LAMPS
+AFT PAN
+ZOOM
+AND TILT - TELEVISION
+MOUNT
+CAMERA
+
+MERCURY
+VAPOR
+LAMPS
+
+SKIRT TELEVISION CAMERA
+
+STILL
+CAMERA
+
+BOW
+TELEVISION
+CAMERA
+
+MERCURY
+VAPOR
+LAMPS
+
+STROBE
+LAMP
+
+Fig. 4-1 Optice- Sensors, Controls, and Displays
+
+ORIGrnAL
+
+4 -3
+
+NAVSlllPS 0905-120-0010
+
+surrounding the vehicle. Six television cameras (five on the external hull and one in
+the mid sphere) electronically photograph the surrounding area and transmit their
+video signals to four TV monitors in the control sphere, Viewports in the control and
+mid spheres provide a direct viewing capability. A still camera supplies permanent
+records of external events. A 16-mm motion picture camera can be mounted externally
+for alternate missions. A floodlighting arrangement supplies the necessary illumination for viewing and photography.
+
+4-7. TV CAMERAS. Two wide-angle television cameras - one in the bow pointing
+forward and 20 degrees below horizontal, the other pointing down through a viewport
+in the mid sphere lower hatch - provide views in these areas. The cameras are identical and are supported on fixed-direction mounts.
+
+Each is equipped with a 7. 9-mm,
+
+f/1. 5 lens that can be focused from 3 inches to infinity.
+72 degrees horizontal and 57 degrees vertical.
+
+Its field of view in water is
+
+Focus and iris control is provided by
+
+switches near the television monitor screen. The mid sphere camera provides a view
+of the rescue hatch of the disabled submarine during the mating operation. A cue dot,
+projected by the special effects unit onto the TV image, aids the pilot in aligning the
+transfer skirt over the rescue hatch.
+4-8. Two television cameras which can be rotated and tilted are mounted on the underside of the vehicle, one forward of the control sphere; the other aft of the aft sphere.
+These mounts allow the cameras to be withdrawn completely inside the external hull
+or extended for viewing. Switches controlling retraction and extension together with
+position indicators are located on the pan and tilt extender panel. Each camera is
+equipped with ~n f/2 lens whose focal length can be varied between 13 to 52 millimeters.
+Fields of view vary as to focal length selected and range from 10 to 36 degrees horizontal and from 7. 5 to 27 degrees vertical. The camera mount can be rotated through
+350 degrees in the horizontal pan axis and through 210 degrees in the vertical tilt axis.
+Controls for pan, tilt, focus, iris, and zoom are located adjacent to the TV monitor
+screens.
+4-9. Two additional television cameras are mounted on the topside of the vehicle,
+one forward of the control sphere and slightly to starboard of the centerline, the
+other aft of the aft sphere and to port. Their mounts, retractable inside the external
+hull, can be extended and rotated through 350 degrees in the horizontal pan axis.
+ORIGINAL
+
+4-4
+
+0
+
+NAVSHIPS 0905-120-0010
+
+Cameras are mounted with their longitudinal axis vertical; a 45-degree mirror provides
+for horizontal viewing. Each camera is equipped with an f/1. 2, _12. 5-mm lens that
+can be focused from 3 inches to infinity. The field of view is 44 degrees horizontal
+by 33 degrees vertical . Panel controls are the same as those provided for the pan
+and tilt cameras.
+4-10. STILL CAMERA. An electrically driven 35-rnm still camera is located on the
+forward pan and tilt mount. It is equipped with a special f/ 4. 5 lens designed to compensate for distortion caused by the water-glass-air interface. The camera field of
+view is 51 degrees horizontal by 33 degrees vertical with a focal range from 3 feet to
+infinity.
+
+The camera is capable of exposing appr::>ximately 500 frames from a stand-
+
+ard 100-foot roll of film.
+
+With each exposure, the camera also photographs an internal
+
+chamber containing a depth gage, clock, and frame counter. Single exposures can be
+made manually or the camera can be set to expose a frame every 4, 6, 8, 10, 12, or 14
+seconds. Controls for single exposures or automatic cycling, together with a frame
+counter for the camera, are located on the film camera control panel.
+
+0
+
+For secondary
+
+missions, a 16-mm movie camera and light can be substituted for the still camera,
+if desired. The still camera and its strobe light are then moved to the aft pan and
+tilt.
+4-11.
+
+LIGHTS. Illumination for direct viewing and for the field of view covered by all
+
+TV cameras (except that in the mid sphere) is supplied by 175-watt mercury vapor lamps.
+Lamps for the bow TV camera are_ fixed but those for the topside pan cameras and the
+underside pan and tilt cameras are mounted on and move with these units. Two 75-watt
+quartz-iodide lamps in the transfer skirt illuminate the area covered by the mid sphere
+TV camera. Other areas are illuminated by four mercury vapor lamps (two forward of
+the transfer skirt and two aft) and two quartz-iodide lamps aft of the forward pan and
+tilt unit. Switches for all mercury vapor and quartz-iodide lamps are located on the
+external floodlights control panel. A high-intensity strobe lamp synchronized with the
+shutter of the 35-mm still camera provides illumination for this unit. If a movie camera
+is installed, a 1, 000-watt incandescent floodlight replaces the strobe light on the forward
+pan and ti It unit.
+4-12 VIEWPORTS. These transparent penetrations through the walls of the pressure
+capsule provide a direct viewing capability. Two viewports are located in the control
+ORIGINAL
+
+4-5
+
+NAVSHIPS 0905-120-0010
+
+sphere (one forward, one aft and to starboard, both pointing downward at an angle of
+approximately 45 degrees). Another two are in the walls of the mid sphere (one to
+port, the other to starboard, both pointing about 45 deg.Tees downward) . The mid
+sphere starboard viewport permits observation of the manipulator arm and its terminal
+device when they are used to cut the disabled submarine message cable and clear the
+disabled submarined escape hatch. A fifth in the center of the lower hatch is used by
+the skirt television camera or for visual observation of conditions in the skirt.
+4-13.
+
+An optical column allows observation through the control sphere forward view-
+
+port by pilot and copilot from their seated operating positions. It provides stereoscopic observation by either man or simultaneous monocular viewing by both men
+while seated in their regular positions. The principal use for this viewport optical
+system is observation while mating with the mother submarine and for general observa tion. Field of view is approximately 70 degrees at unit magnification. Maximum
+viewing distance with the vehicle's floodlight system is approximately 100 feet in clear
+water. The column can be folded between the seats when it is not used.
+4-14. NAVIGATION (FIGS. 4-2 AND 4 - 3).
+4-15.
+
+For accurate navigation in deep ocean environments, an inertial platform and
+
+other onboard sensors are used on the DSRV to generate accurate indications of geographic positions (latitude, longitude , and depth). This navigation task includes return
+to a given location (e.g. , disabled submarine or mother submarine) after a period of
+search and maneuvers. The equipments used in DSRV navigation are as follows :
+•
+
+Inertial Navigator
+
+•
+
+Central Processing Computer
+
+•
+
+Doppler Sonar
+
+•
+
+Altitude/Depth Sonar
+
+•
+
+Transponder Interrogation Sonar
+
+•
+
+Sound Velocimeter
+
+)
+ORIGINAL
+
+4-6
+
+NAVSHIPS 0905-120-0010
+
+)
+
+TRANSPONDER
+JNTERROGA TION
+SONAR
+TRANSCEIVER
+PANEL
+
+ALTITUDE/OEPTH
+SONAR
+GRAPHIC
+RECORDER
+PANEL
+
+AL TITUDE/OEPTH
+SONAR TRANSCEIVER
+PANEL
+
+CENTRAL
+PROCESSING
+COMPUTER
+CONTROL
+AND DISPLAY
+PANEL
+
+DOPPLER
+SONAR
+TRANSCEIVER
+PANEL
+
+ALTITUDE/DEPTH
+SONAR
+RECORDER
+ELECTRONICS
+PANEL
+
+TIMING
+COORDINATOR
+PANEL
+
+RELEASABLE
+HOMING
+TRANSPONDERS
+
+STATE
+DISPL.t.Y
+PANEL
+
+TRANSPONDER
+INTERROGATION
+SONAR
+TRANSDUCER
+DIRECTIONAL
+LISTENING
+HYDROPH~~
+
+/
+
+/Ll
+
+/
+
+1/,'
+
+_
+_.
+
+.
+
+.,,
+DEPTH SONAR
+TRANSDUCER
+
+/
+
+.,,. ,
+
+7'
+
+DEPTH PRESSURE
+TRANSDUCERS
+
+----SKIRT PRESSURE
+TRANSDUCER
+
+_
+
+-
+
+_
+.
+,
+L
+
+C!)
+
+DOPPLER SONAR
+TRANSDUCER
+
+SOUND
+VELOCIMETER
+DEPTH PRESSURE
+TRANSDUCERS
+
+ALTITUDE SONAR
+TRANSDUCER
+
+Fig. 4-2 Navigation Sensors, Controls, and Displays
+
+)
+ORIGINAL
+
+4-7
+
+NAVSHIPS 0905-120-0010
+
+CPC I DOA
+
+I
+ALTITUDE/
+DEPTH
+SONAR
+
+-
+
+COMPUTE
+VN VE. P. R, H
+LAT., LONG.
+
+..
+
+~
+
+l
+
+SONAR
+
+...
+
+1
+
+COMPUTE
+RANGE COUNTS
+FROM
+INTERROGATION
+TIMES
+
+,__ H
+
+INERTIAL
+NAVIGATOR
+
+X, Y, Z
+
+I
+GRAPHIC
+RECORDER
+
+'
+
+COMPUTE
+GYRO
+TORQUE
+
+ISSUE
+GYRO
+TORQUE
+COMMANDS
+
+I
+COMPUTE
+
+TRANSPO:-IOER
+INTERROGATION
+
+COUNTS
+. RANGE
+FROM
+
+SONAR
+
+INTERROGATION
+
+-
+
+COORDINATE
+TRANSFORMATION , •
+A Psooy- A P~z 1"
+
+-
+
+DOPPLER
+SONAR
+
+TIMES
+DEPTH
+PRESSURE
+TRANSDUCER
+A
+
+-
+
+CPC / CP
+
+--- H
+'
+
+DEPTH
+PRESSURE
+TRANSDUCER
+
+~
+
+a
+
+DEPTH
+PRESSURE
+TRANSDUCER
+C
+
+--
+
+I
+
+.i.
+
+--
+
+... .
+
+COMPUTE NECESSARY
+REQUIREMENTS FOR
+SEN'.iOR MEASUREMENT
+INCOPOR.iTION
+
+l
+
+-
+
+VALIDATE
+r,
+
+DATA
+
+COMPUTE
+VELOCITY OF
+SOUND
+
+'"
+
+SOUND
+VELOCIMETER
+
+IN WATER
+
+I
+NAVIGATION
+DATA
+PLOTTER
+
+CPC
+CONTROL AND
+I
+
+DISPLAY
+PAt-.£l
+
+4--
+
++
+
+H
+
+CONTROL
+
+.
+
+PROCESSED SENSOR
+MEAS. INFO.
+~ SENSOR STATUS
+: ALARMS
+',
+,- : MISSION CLOCK
+'" NAVIGATION MOOE •
+
+POSITION I P}
+-..,..
+VELOCITY (V)
+ATTITUDE (P. R. H)
+~
+RANGE TO TARGET
+..,..~
+DEPTH
+-..,..
+ALTITUDE
+GRAB ANGLE
+~
+---,
+RElATIVt. 9£.~RING
+RANGE RATES
+IN EXT. VEL. COMPENS-=IN RADIUS CORRECTION~
+IN RESET
+
+.
+
+INTEGRATED
+NAVIGATION
+SYSTEM
+COMPUTATION
+
+REF. COORD. FRAME
+,
+• MEAS. TIMES
+~
+
+..
+..
+
+.
+
+...
+
+➔
+
+Fig. 4-3 Navigation Functional Block Diagram
+
+)
+ORIGINAL
+
+4-8
+
+NAVSHIPS 0905-120-0010
+
+•
+
+Depth Pressure Transducer
+
+•
+
+Navigation Data Plotter (ancillary equipment)
+
+•
+
+Sonar Graphic Recorder (ancillary equipment)
+
+4-16.
+
+Each navigation sensor provides measurement of a particular parameter with
+
+an accuracy and a noise value associated with it. A functional block diagram of the
+navigation system is shown in Fig. 4-3. As shown, there is redundancy in the information available from the sensors, and there are a large number of possible choices
+in the utilization of, and relative importance given to, the outputs of the sensors.
+The navigation computations for the DSRV are accomplished in a Kalman filtering formulation. This technique provides a method by which navigation data, as they become
+available, may be processed in a logical and orderly manner to provide a "best estimate 11 of the position and velocity of the vehicle.
+
+The principal utility of the method
+
+is in handling inputs from a variety of navigation sensors, defining the w11y in which
+such inputs are to be used, and establishing the relative weights to be given to each
+input. Application of the technique requires specification of the interaction of each
+
+)
+
+navigation sensor with its noise sources and specification of certain parameters of the
+noise. The technique, therefore, makes it possible to integrate the various navigation
+sensors into a single navigation system.
+4-17. Following is a simplified description of navigation computation process. A
+measurement is obtained from one of the sensors. An estimate of the measurement
+based on previous solutions is made and is compared with the actual measurement.
+The measurement is adjusted as a function of the error between the estimated and
+actual values, and then applied to generate a statistical "best estimate 11 of the position
+and/or velocity of the DSRV. The technique is a learning process based on the
+maximum-likelihood principle of statistics; the computer keeps a running fi.gure-ofmerit on the conformity of the measured values to the corresponding calculated values,
+and continually readjusts the credibility coefficients on this basis. The regime provides position and velocity of the DSRV with errors less than those associated with
+any individual sensor.
+
+ORIGINAL
+
+4-9
+
+NAVSHIPS 0905-120-0010
+
+4-18. INERTIAL NAVIGATOR. The inertial navigator performs the following
+functions:
+•
+
+Provides a true north reference for vehicle heading (on azimuth) data
+
+•
+
+Provides a local vertical reference for vehicle pitch and roll data
+
+(
+
+This information is used as the primary source for 1) displaying vehicle attitude/heading
+indication to the pilot, 2) inputs to the vehicle navigation system, and 3) attitude control of the vehicle (after some coordinate transformation).
+4-19. The inertial navigator consists of three s ingle-degree-of-freedom integrating
+gyros, two single-degree-of-freedom integrating accelerometers, gimbal mounting for
+these operational elements in an inertial "platform" arrangement, and a helium- filled
+sealed aluminum housing. The accelerometers are used to sense the earth gravity
+vertical; the sensed signals are used to align the inertial navigator platform precisely
+perpendicular to the vertical.
+north.
+
+The gyroscopes are used to align the platform to true
+
+4-20. The output from the inertial navigator is obtained from the platform gimbal
+angles. These outputs are displayed on the state display panel (prime azimuth, fine
+roll, and pitch) as vehicle attitude with respect to the inertial reference. At the same
+time these initial data are fed to the central processing computer, which processes
+the data for navigation purposes and for attitude control of the vehicle.
+4-21." Backup in the event of inertial navigator failures is provided by a gyro shelf
+assembly which senses vehicle pitch, roll, and yaw, and drives course pitch and roll
+displays. The directional gyro in this assembly is normally slaved to the inertial
+navigator to correct its approximate drift of 6 degrees an hour .
+4-22. DOPPLER SONAR. The doppler sonar is used to provide an accurate measurement of velocity along the DSRV' s three linear axes. The outputs are used 1) to drive
+displays on the ship state display panel (knots for the fore/aft and port/starboard axes ;
+feet per minute for the vertical axis ), 2) for vehicle stationkeeping to automatically
+maintain the vehicle stationary with respect to ocean bottom, 3) as input to the DSRV
+navigation system for use in automatically computing vehicle dead-reckoning position.
+ORIGINAL
+
+4-10
+
+)
+
+NAVSHIPS 0905-120-0010
+
+)
+4-23. In operation, four sonar beams are directed 30 degrees to the vehicle vertical
+axis and 45 degrees to the vehicle fore-aft axis. This is accomplished by a symmetrical array of projectors/ hydrophones mounted on the underside of the vehicle aft of
+the transfer skirt. Within approximately 350 feet of the bottom, velocity relative to
+the ocean floor is measured by the doppler shift of each of the four beams.
+4-24. A sound velocimeter automatically measures precisely the velocity of sound
+in water. It is used to calibrate the doppler sonar and all other sonars which incorporate the speed of sound in their operations. In operation, two electro-acoustic
+transducers and a reflector are mounted on the external hull to form a sound path of
+known length. A signal is transmitted by one transducer, reflected, ar.d received by
+the other transducer. Timing circuits measure the time of travel.
+4-25. NAVIGATION DATA PLOTTER. The n~vigation data plotter produces a permanent t-race of the vehicle dead-reckoning track in the horizontal plane. It is also
+used for hand plotting transponder locations and other selected targets. The plotter
+
+0
+
+operates from signals generated by the central processing computer. In the event of
+plotter failure, the operator can acquire DSRV position from the computer and manually
+plot his position on the plotting surface with a felt tip pen.
+4-26. ALTITUDE/DEPTH SONAR. The altitude/depth sonar is used to measure
+accurately and to make a permanent record of the DRSV' s position relative to the
+ocean's bottom and surface. Measurements of altitudes and depths for ranges ur to
+10,000 feet are permanently traced on calibrated paper by a graphic recorder. These
+measurements are also displayed in digitized form on the state display panel. Accuracy indications of altitude or depth is not affected by vehicle attitudes up to ± 7. 5
+degrees of trim or list.
+4-27. In operation, the altitude/depth sonar projects acoustic signals in two 15-degree
+vertical cones through transducers mounted on the top and underside of the vehicle,
+and measures travel time of their reflections from ocean bottom and surface.
+
+)
+ORIGINAL
+
+NAVSHIPS 0905-120-0010
+
+(
+
+4-28. DEPTH PRESSURE TRANSDUCERS. Two transducers located in the bow
+section of the vehicle and one transducer located in the aft lower midbody section
+are used to measure hydrostatic absolute pressure for determining vehicle's depth
+from ocean surface. Output of the bow transducer is processed by the c.entral computer, then routed in digitized form to the state display panel and also to the navigation
+system. Range of output is from O to 4, 000 psia (9, 000 feet).
+
+Through continuous
+
+comparison by the computer of depth transducer outputs, the computer automatically
+selects one of the three as the operating transducer.
+4-29.
+
+TRANSPONDER INTERROGATION SONAR. This sonar projects an acoustic
+
+signal which triggers a return signal from a transponder carried aboard a support
+vessel or from a moored transponder dropped to mark a specific navigation reference
+point, e. g. , the site of the disabled submarine. The transponder can be preset to
+operate on any one of ten different frequencies between 12. 5 and 17 kHz and thus can
+be positively identified. The return signal is detected and identified by the receiver portion of the interrogation sonar, is then sent to the graphic recorder as a range display,
+to the central computer for navigation computation, and to the state display panel where
+it is displayed as bearing. Maximum range is 6,000 yards.
+4-30. Two deep ocean transponders Q1oming transponders) which can be dropped as
+marker beacons are carried aboard the DSRV. In addition, a similar transponder,
+permanently mounted on the vehicle (known as the tracldng transponder) , can be interrogated by a surface ship or mother submarine. From the return signal the support
+vessel can determine the range and bearing of the DSRV.
+4-31. SONARS (FIG. 4-4).
+4-32. Sonars in this group are concerned with obstacle avoidance (the horizontal
+obstacle sonar and the vertical obstacle sonar) and with providing a visual display of
+the disabled submarine for close approach and mating operations (the short range
+sonar).
+4-33. HORIZONTAL OBSTACLE SONAR. The horizontal obstacle sonar is used to
+detect the bearing and range of objects lying in the longitudinal plane of the DSRV. It
+
+)
+ORIGINAL
+
+4- 12
+
+NAVSHIPS 0905-120-0010
+
+SHORT RANGE
+SONAR
+TRANSCEIVER
+PANEL
+
+TIMING
+COO RD INA TOR
+PANEL
+
+VERTICAL
+OBSTACLE
+SONAR
+TRANSCEIVER
+PANEL
+
+VERTICAL
+OBSTACLE
+SONAR
+TRAIN
+PANEL
+
+,"'
+
+VERTICAL
+OBSTACLE
+SONAR TRAIN
+MECHAN/i'
+
+..
+
+L-r);?(,,1/
+
+,,/
+,._ .
+
+/,
+HORIZONTAL
+OBSTACLE SONAR
+TRANSDUCER
+
+/
+
+,
+
+,
+
+~-.
+
+~-...........-~~
+SHORT
+RANGE
+SONAR
+TRANSDUCER
+
+HORIZONTAL
+OBST,6.CLE
+SONAR TRAIN
+MECHANISM
+
+Fig. 4-4 Obstacle Avoidance and Mating Sonar Sensors, Controls, and Displays
+
+0
+ORIGINAL
+
+4-13
+
+NAVSHIPS 0905-120- 0010
+
+is capable of this detection in a sweep that extends approximately 90 degrees to port
+and to starboard of the bow, and at ranges from 10 to 1,500 yards (in four range scales).
+Visual displays are monitored on one of the three sonar screens in the control sphere;
+audio signals are monitored by speaker or headset.
+4-34. Scan modes can be either automatic or manual. In automatic, the trans ducers
+rotate 25 degrees per second to scan a sector of 180 degrees (centered on the vehicle's
+heading) or a narrower sector 60 degrees wide centered on any azimuth position.
+In the manual mode, the scanning transducers can be stopped or controlled to rotate
+
+in either direction within the limits of =t90 degrees to port or s tarboard. Resolution
+is approximately ±2 percent of full scale for range and ±2 degrees for bearing. The
+vertical angles of the transducers are 15 degrees from horizontal.
+4-35. VERTICAL OBSTACLE SONAR. The vertical obstacle sonar is used to indicate
+the height and range of objects that lie ahead of the vehicle, and serves to complement
+the horizontal obstacle sonar for the obstacle avoidance function. A train control
+allows the sonar beam (60 degree high by 5 degrees wide) to be aimed within ±45 degrees
+from the vehicle fore/aft axis. The vertical obstacle sonar does not automatically
+train or r otate back and forth.
+
+A 100- or 500-yard range can be selected. Resolution
+
+is approximately 3 yards for range and 2 degrees for height of obstacle.
+4-36. SHORT RANGE SONAR. The short range sonar provides a visual display of
+the view looking downward through the DSRV transfer skirt and thus assists the pilot
+in locating the disabled submarine's rescue hatch and successfully mating with it. The
+sonar is designed to operate in two ranges - a 20- to 150-foot medium range and a
+2- to 15-foot high-resolution range. The former is used for locating and identifying
+
+the rescue hatch , the latter for the actual mating. Appr oximate range and the relative
+angles between the DSRV and the hatch can be determined from the sonar displays.
+4-3'7. In operation, two transducers are rotated to scan the area of view - one trans-
+
+ducer scans fore and aft, the other from port to starboard , each through a 90-degree
+arc. Results from each scan a re displayed on separate sonar monitor screens. The
+special effects unit superimposes on the displays a floating dot for range determination
+and the relative attitude of the two vehicles.
+
+)
+ORIGINAL
+
+4-14
+
+NAVSHIPS 0905-120-0010
+
+J
+
+4-38. COMMUNICATIONS (FIG. 4-5).
+4-39. The equipment in this category provides personnel aboard the DSRV the means
+of communication with support ships and the disabled submarine. Also provided is
+internal communication between the control sphere and the other two spheres.
+4-40. UHF RADIO. This UHF receiver-transmitter provides two-way radiotelephone
+communication between the DSRV when surfaced and the support ship or other surface
+vessel. It is amplitude-modulated and capable of transmitting and receiving on any
+one of 20 preset channels in the 225 to 400 MHz band. A separate emergency operating frequency (guard) of 243 MHz is also provided. In addition to its use as a voice
+transceiver, it can also be used to transmit a tone-modulated signal to aid the support
+vessel to home in and locate the DSRV after surfacing.
+4-41. UNDERWATER TELEPHONE. The underwater telephone provides voice or
+continuous wave (CW) communication between the DSRV and its support vessel (either
+the mother submarine or the surface support ship) and the distressed submarine.
+
+0
+
+Normal voice communications are transmitted in the form of amplitude modulated
+sound waves; continuous wave transmissions are in the form of constant amplitude,
+manually keyed sound waves. Transducers mounted on both the top and under sides
+of the vehicle allow for transmission when submerged or surfaced. Operating frequency is 8. 087 kHz. Depending on sea state and ambient noise level, a maximum
+operating range of approximately 3 miles horizontally and over 7 , 500 feet vertically
+can be attained.
+4-42. DIRECTIONAL LISTENING HYDROPHONE. This unit provides a means of determining the direction of underwater sounds. It permits the DSRV, through biaural or
+stereo detection of acoustic signals ( particularly those sonic signals generated by hull
+hammer blows),to home in on such an acoustic source. Signals are received by two
+hydrophones mounted on opposite sides of the external hull and separated acoustically
+by the control sphere. The operator, by listening to the time delay and intensity difference between the two signals, can determine the direction of the signal source.
+The effective range for detecting hammer blows is about 5,000 yards.
+
+0
+ORIG1NAL
+
+4-15
+
+NAVSHIPS 0905-120-0010
+
+COMMUNICATIONS PANEL
+
+DIRECTIONAL
+LISTENING
+HYDROPHONE
+RECEIVER
+PANEL
+UHF
+TRANSCEIVER
+PANEL
+
+CW KEY PANEL
+
+SPEECH AND
+DATA RECORDER
+PANEL
+
+UNDERWATER
+TEUPHONE
+ELECTRONICS
+PANEL
+
+MID SPHERE
+INTERIOR
+COMMUNICATIONS
+CONTROL PANEL
+
+~
+
+.- -
+
+UHF ANTENNA
+CONTROL SPHERE
+COMMUNICATIONS
+CONTROL PANEL
+
+e/,,,,,
+
+UNDERWATER
+TELEPHONE
+TRANSDUCER -
+
+_./·
+
+~
+
+- SKIRT
+JACK
+
+UNDERWATER
+TELEPHONE
+TRANSDUCER
+
+Afl SPHERE
+INTERIOR
+COMMUNICATIONS
+CONTROL PANEL
+
+DIRECTIONAi.
+LISTEN ING
+HYDROPHONES
+
+Fig. 4-5 Communications Sensors. Controls, and Displays
+4-16
+
+)
+
+NAVSHIPS 0905-120-0010
+
+)
+4-43. INTERNAL COMMUNICATIONS. Communication between the control sphere,
+the two other spheres , and the two external stations (inside the DSRV skirt and upper
+trunk) is supplied by an internal communications system. A speaker and connections
+for a headset and microphone and a hand microphone with push-to-talk switch are
+located in each sphere. Controls, in the control sphere, for both internal and external
+communications are located on the communications control panel directly in front of
+and slightly above the pilot and copilot. All voice signals, a timing code, and inputs
+from both channels of the directional hydrophone are recorded on magnetic tape in a
+speech and data recorder during mission operations. It records the following: all
+!CS voice, computer timing signals, UHF radio, DLH signals, UWT communications,
+and computer digital information.
+4-44. COMPUTERS.
+
+4-45. A central computer, coupled with a timing coordinator and a recorder/
+reproducer, satisfies the bulk of data processing requirements aboard the DSRV. A
+
+0
+
+separate digital differential analyzer in the autopilot processes inputs from sensors
+on vehicle attitude and rates and from pilot commands for ship control.
+4-46. CENTRAL PROCESSING COMPUTER. The central processing computer is an
+integral package incorporating 14 major integrated circuit elements. It includes
+18 logic modules, 4 analog modules, 2 memory core units, a delay line, and a power
+
+supply. It is divided into two operating sections: 1) a general purpose section for
+performing low iterative, random real-time computations, used primarily for decision
+functions and interface servicing; and 2) a digital differential analyzer for high iterative,
+continuous real-time computations used for control purposes. The latter is addressed
+through the general purpose section.
+4-47. TIMING COORDINATOR.
+
+The timing coordinator is a sequential timing-switching
+
+electronics package used primarily for reducing interference among the sonar acoustic
+beams by correlating their transmissions. It also provides interfacing between the
+central processing computer, the speech and data recorder, and the sound velocimeter.
+
+0
+ORIGINAL
+
+4-17
+
+NA VSHIPS 0905-120-0010
+
+4-55.
+
+BALLAST. Meters on the ship control panel displ ay the following data con-
+
+cerning DSRV ballast systems: 1) main ballast: pressure of air in the high-pressure
+flask used for blowing the main ballast bags: 2) trim ballast: pounds of mercury in
+the forward and aft tanks; 3) variable ballast: pounds of sea water in the forward and
+aft tanks; 4) list ballast: pounds of mercury in the port, starboard, and reservoir tanks;
+the meter for the reservoir also indicates list and trim angles achievable for any given
+BG condition.
+4 -56.
+
+MA TING. Meter indications of the elements involved in DSRV mating are
+
+1) shock mitigation ring: whether fully extended or retracted; 2) transfer skirt:
+
+internal/external differential pressure, absolute pressure; 3) transfer ballast:
+pounds of sea water in forward and aft tanks; and 4) ASR retrieval arms: whether
+extended and whether engaged.
+4-57. LIFE SUPPORT.
+
+Meters monitor temperature, pressure, and atmosphere
+
+content in various areas and display this information on the life support panel: 1)
+equipment compartment of the control sphere: temperatures and pressure differentials
+in selected areas; 2) crew compartment of control sphere: absolute pressure of oxygen
+and carbon dioxide in the atmosphere; and 3) mid and aft spheres: absolute pressure
+of oxygen and carbon dioxide in the a1mosphere in each sphere.
+4-58.
+
+POWER. Meters monitor voltage levels, main battery current drain, and line
+
+isolation in the power systems and display this information on the main power
+monitor panel. The hydraulic power supply pressure is monitored on the ship control
+panel.
+4 -59. SHIP CONTROL.
+4-60. The ship control and display system provides operators of the DSRV with
+
+adequate knowledge of the vehicle's position, attitude, and systems operation, and
+with mechanisms for maintaining or changing these conditions. In essence, the displays supply data required for decision-making; the controls provide the requisite
+
+ORIGINAL
+
+4-20
+
+NAVSHIPS 0905-120-0010
+
+)
+devices for implementing these decisions. Displays have been considered earlier in
+this section along with the sensors which supply them with appropriate inputs, and
+will be considered here only as they relate to the pilot's operation of the ship control
+subsystem.
+4-61. CONTROL REGIMES. Ship controls on the DSRV have been designed to ensure
+complete control of the vehicle during all phases of the rescue mission. These phases
+impose two basic requirements: high-speed travel between the support vessel and lowspeed hovering maneuvers, with explicit control in six degrees of freedom that allows
+successful mating with a disabled submarine. The high-speed cruise regime is characterized by a surge velocity in excess of 2. 3 knots and the use of the steering shroud
+to effect changes in yaw and pitch. The hover regime prevails at speeds less than 2. 3
+knots and uses the ducted thrusters to achieve direct translation along the port/starboard
+and up/do\vn axes.
+
+The shroud and thrusters are mutually exclusive in the two regimes.
+
+4-62. Under ordina:ry circumstances, the pilot will select the cruise or hover regime
+based on the vehicle velocity and battery power available.
+4-63. Commands to the vehicle effectors (main propeller, shroud, thrusters, and list
+and trim ballast) to change or maintain position and attitude are received from two
+sources: closed-loop sensor feedback (i.e. , rate gyros and attitude gyros) and inputs
+from the pilot .hand controllers. The extent of automatic sensor _feedback control to be
+employed is a function of the different control modes available. These modes are
+described in detail in later paragraphs. Pilot commands are primarily through a pair
+of hand controllers located before him on the: console shelf. The left, or translation,
+controller is used to command the vehicle propulsive device to move the vehicle along
+its three linear axes. The right, or rotation, controller allows attitude changes to be
+made around these three axes by commanding list ballast and either the shroud or the
+thrusters differentially.
+4-64. CONTROL MODES. The DSRV pilot has available to him four modes of ship
+control, each succeeding level of which is less sophisticated than the preceding one in
+terms of automatic characteristics. In addition to this hierarchy of sophistication ,
+
+ORIGINAL
+
+4-21
+
+NAVSHIPS 0905-120-0010
+
+each succeeding level ensures a backup mode of operation should some component fail
+in the previous level. The four available modes are the following:
+• Aided manual prime
+• Aided manual backup
+• Disconnect
+• Emergency
+4-65. Aided Manual Prime. In this mode, the pilot controls DSRV attitude and position by using the rotation and translation hand controllers. The autopilot, using feedback from various sensors, automatically assists in attitude rate damping, attitude
+and position holding, and control-axis decoupling. The pilot uses the information
+given him from displays to decide how and when to maneuver.
+4-66. Aided Manual Prime - Cruise. Surge is controlled by tilting the translation
+hand controller fore and aft. Velocity is controlled by amount of deflection. A velocity
+switch can be set to maintain the selected velocity. In this cruise regime, deflection
+of the translation controller to port or starboard and rotation of the controller have no
+effect. To change heading, the rotation controller is rotated to port or to starboard.
+This controller is deflected fore or aft to change the vehicle pitch attitude. Rotation
+(or twist) of this controller changes vehicle heading. Zero list is maintained by keeping
+the controller in neutral port-starboard position.
+4-67 . Displays used during cruise include the state display panel, ship control panel,
+ship control mode panel, shroud angle meter , sonar monitors, navigation data plotter,
+and alarm panel.
+4-68. Aided Manual Prime- Hover. Surge, sway, and heave are achieved in this
+regime by appropriate deflection and -rotation of the translation hand controller (counterclockwise rotation for heave up, clockwise for heave down). Pitch, roll, and yaw are
+controlled by deflection and rotation of the rotation hand controller (port/ starboard for
+roll, fore/aft for pitch, counterclockwise for yaw to port, clockwise for yaw to starboard) . Vel ocity along the linear axes is proportionate to the amount of deflection or
+rotation of the translation controller. Attitude change rates are proportionate to the
+amount of deflection or rotation of the rotation controller.
+ORIGrnAL
+
+4-22
+
+l
+
+J
+
+NAVSHIPS 090!i-120-0010
+
+)
+4-69.
+
+In changing and holding a new spatial position or attitude, the appropriate hand
+
+controller is deflected or rotated until the vehicle approaches the desired position or
+attitude. The hand controller is then returned gradually to the neutral position. The
+autopilot takes over and holds the new pas ition or attitude until a countermanding order
+is input by the pilot.
+4-70. Displays of primary interest during hover include the state display panel, ship
+control panel, ship control mode panel, sonar monitors, TV monitors, and alarm panel.
+4-71.
+
+Aided Manual Backup. No automatic position or attitude hold is provided in the
+
+aided manual backup mode, nor is automatic axis decoupling available. The only
+closed-loop assistance for the pilot is automatic ratedampingin pitchandroll. The translation and attitude angle loops are closed only through the pilot observing the displays
+and moving the hand controllers as required. When in the hover regime, he can be
+aided in positioning the DSRV over the disabled submarine 1 s rescue hatch by a floating
+
+0
+
+cue dot available on the monitored image from both the skirt TV camera and the short
+range sonar.
+4-72. Disconnect (Manual). The disconnect mode is similar to aided manual backup ,
+except damping is provided only for roll disturbances. Both hover and cruise regimes
+are available. Direct proportional linking of the hand controllers to the effectors is
+provided.
+4-73. Emergency. All effectors can be operated on a switch on/ switch off basis if
+required. The main propeller is controlled by a three-way toggle switch on the emergency ship control panel. Thrusters build up to 75 percent of their full rpm and remain
+at this level until the switches are positioned to OFF. Similar switches on the same
+panel allow actuation of the ducted thrusters and the shroud. Shifting weights in the
+list and trim systems and increasing or decreasing l:f'oyancy in the variable ballast
+system can be accomplished with switches on the ship control panel. It is necessary
+to shift mode switches to manual on both the emergency ship control panel and the ship
+control panel before using effector switches.
+
+0
+
+4-74. EMERGENCY JETTISON. Should an occasion arise when it is impossible to
+disengage from entanglements or fouling, or when positive buoyancy in excess of that
+ORIGINAL
+
+4-23
+
+'
+
+NAVSHIPS 0905-120-001 0
+
+available from the variable and main ballast systems is required, one or more of
+the following can be jettisoned:
+• Forward pan and tilt unit
+• Aft pan and tilt unit
+• Manipulator arm
+• Mercury from the trim and list systems
+4-75. Each jettisonable device or element employs pyrotechnic devices to cut cables
+or mounting bolts , open mercury drain lines, or otherwise break a connection holding
+one of the above items. ln each instance, two independently powered pyrotechnic
+cartridges are provided in the event one fails to fire. Jettison controls are mounted
+on the emergency jettison panel in the control sphere and are protected with a transparent cover to guard against inadvertent firing.
+
+)
+ORIGINAL
+
+4 - 24
+
+NAVSHIPS 0905-120-0010
+
+)
+Section 5
+SUPPORT SUBSYSTEM
+5-1. GENERAL.
+_5-2. The DSRV support subsystem, summarized in terms of its principal elements
+in Section 2, is described in greater depth in this section.
+
+Order of presentation is
+
+the same and conforms to the following arrangement:
+•
+
+GROUND TRANSPORT
+Shore Handling Vehicle
+Land Transport Vehicle
+Transport Cradle
+Transfer Skirt Dolly
+Pylon Handling Dolly
+Support Van
+
+0
+
+•
+
+AIRCRAFT LOADING AND TRANSPORT
+Aircraft No. 1
+
+•
+
+Aircraft No. 2
+Aircraft No. 3
+Aircraft No. 4 and Aircraft No. 5
+•
+
+SHIPBOARD LOADING AND HANDLING
+Mother Submarine (MS)
+Submarine Rescue Ship (ASR)
+
+•
+
+CHECKOUT AND SERVICING
+Standby Checkout and Servicing
+Operational Checkout and Servicing
+Preventive Maintenance
+Corrective Maintenance
+
+•
+
+SUPPORT AND SERVICING EQUIPMENT
+Electrical Support
+Servicing Support
+
+0
+
+Life Support Resupply
+ORIGINAL
+
+5-1
+
+NAVSHIPS 0905-120-0010
+
+5-3. GROUND TRANSPORT.
+
+5-4. All rescue mission transport movements involving a remote de ployment of the
+DSRV are accomplished with the land transport vehicle (LTV) . A support van and two
+flatbed trailers carry prime mis sion s upport equipment. These movements include
+transport from the rescue unit's permanent facilities to an adjacent airfield. In this
+instance, the entire DSRV system is flown in separate aircraft to an a irfield near the
+remote launch port. Transport overla'ild from this point to dockside is by LTV, support
+van, and other flatbed trailers.
+5-5.
+
+SHORE HANDLING VEHICLE (SHV). The SHV (Fig. 5-1) is used to transport a
+
+fully assembled DSRV around the rescue unit home port (RUHP) area. The SHY is
+moved at very slow speeds (2 to 5 mph) due to the DSRV height and stabil ity factors.
+
+Fig. 5-1 Shore Ha ndling Vehicle
+ORIGINAL
+
+5- 2
+
+)
+
+NAVSHIPS 0905-120-0010
+
+5-6. LAND TRANSPORT VEHICLE (LTV). The LTV (Fig. 5-2) is a flatbed semitrailer attached to a prime mover by means of a dual-wheel, two-axle jeep dolly. It
+has a payload capacity of 72,000 pounds and can be towed safely at speeds as high as
+30 mph on paved highways. It is made up of the following principal components: chassis
+and deck, suspension, jeep dolly, brakes, power unit, control panel, and lights, plus
+tied owns, bumper struts , etc.
+Go1ol ine Power
+Unit-----,
+Control Ponel
+,----Tron11>ort Credle-~
+
+Tiedowns
+
+Jo ck Support Assembly
+
+_)
+
+Adjustable 5th Wheel
+
+Adfu, toble Goosene~k
+
+Air-Ride
+Control
+
+Jack Support Assembly
+
+Fig. 5-2 Land Transport Vehicle and Transport Cradle
+5-7. Chassis and Deck. The chassis and deck supports the DSRV, mounted on a
+transport cradle, and also provides a dockside support to permit DSRV servicing
+and installation of the transfer skirt and splitter plate prior to loading on the support
+vessel. To achieve sufficient clearance for this installation, the DSRV is hoisted
+from the transport cradle, dockside supports are unstowed and installed on the LTV
+deck, and the DSRV is repositioned on top of them. A square hole in the deck's
+midsection is open for access during transfer skirt installation. The crane must
+remain in place to hold most of the DSRV' s weight.
+5-8. Roller bearings (188 in four equal rows) on the LTV deck support the transport
+cradle and the DSRV during transport and provide a low-friction surface when the DSRV
+is winched in or out of the transport aircraft. Jack assemblies at each corner of the
+LTV provide for alignment stability during loading/unloading and dockside operations.
+
+0
+ORIGINAL
+
+5- 3
+
+NAVSHIPS 0905-120-0010
+
+5-!l.
+
+Suspension. Suspension is provided by three dual-wheel axles on the LTV proper
+
+and two dual-wheel axles on the forward jeep dolly, plus an air-suspension subsystem
+(supplied from the vehicle's own compressor) for all axles. In addition to its normal
+shock-absorbing function, the air suspension subsystem can be used to r aise or lower
+the LTV 3. 5 inches from its usual 55-inch height for alignment with the aircraft's loading ramp. The subsystem is deflated during air transport. Indivi dual control panels
+are located on the sides of the LTV and jeep.
+5-10. Jeep Dolly.
+
+This dolly serves as the link between the LTV and the truck-tractor ,
+
+and at the same time supports much ot the forward weight of the LTV. Jack assemblies
+similar to those on the LTV are provided at the forward end of the dolly. The dolly' s
+fifth wheel can be adjusted horizontally fore and aft (60 inches) to distribute the LTV's
+gross load. The gooseneck can be adjusted vertically (10 inches) to interface with a
+variety ot truck-tractor prime movers.
+5-11. Braking. The LTV has its own integral service and parking brake subsystem,
+both actuated by air from the LTV air compressor unit or from the tow tractor. Service
+and parking brakes each have fa il-safe springs which apply braking pressure in the
+event of air supply failure.
+
+Quick disconnect air-line fittings are used between the
+
+LTV and dolly , and the dolly and prime mover. Stop lights are provided in conjunction
+with the service brakes.
+5-12.
+
+Power Unit. The LTV power unit, mounted forward in a ventilated metal case ,
+
+consists of a 4-cylinder, 25-horsepower, air-cooled gasoline engine; an air compressor; a hydraulic system; an el ectrical system; and a hydraulically actuated \\-inch.
+T he air compressor, belt-driven by the engine, can provide air for air suspension and
+br akes. The electrical system includes a 30-ampere belt-driven alternator, a 12-volt
+storage battery, and required manual controls. The hydraulic system includes a direct
+drive hydraulic pump, a hydraulic fluid reservoir, and a control coupling to the
+hydraulically driven winch. The winch contains a double wound drum with 100 feet
+of 0. 375-inch stainless steel cable on one side and 230 feet on the opposite s ide
+(22 , 800-pound breaking strength).
+
+A built-in brake stops and holds the winch should
+
+the hydraulic power fail.
+ORIGINAL
+
+5-4
+
+NAVSHIPS 0905-120-0010
+
+5-13. Control Panel. This panel contains controls to start and operate the power unit
+engine, the electric power alternator, the hydraulic system, and the winch. Gages and
+indicators display subsystem conditions. Panel lights for night operation are provided.
+5-14. Lights. Running, side clearance, turn indicator, and stop lights on the LTV
+comply with DOT regulations for transport over public highways. Electricity for lights
+is supplied by the prime mover or by the LTV electrical system.
+5-15. Miscellaneous Items.
+
+Tiedowns are provided to restrain the transport cradle
+
+and the DSRV to the LTV. Two spreader bar and cable assemblies (one forward, one
+aft) are used in conjunction with the LTV winch to onload and offload the DSRV. During
+DSRV loading and offloading, a pair of adjustable struts are inserted between the rear
+of the LTV bed and the aircraft loading ramp to prevent damage to the aircraft. Two
+lockable compartments in the LTV provide stowage space for these and other miscellaneous items. Special tiedowns are provided by the Air Force for securing deck cargo
+to the LTV after the DSRV is offloaded.
+
+0
+
+5-16.
+
+TRANSPORT CRADLE.
+
+The DSRV is supported on the transport cradle when
+
+being moved overland by the LTV or when air- lifted by the cargo aircraft. In addition
+to providing support, the cradle also restrains the DSRV against loads encountered in
+both modes of transport. Included with the cradle is a set of tiedown assemblies that
+permits the DSRV to be secured to the LTV and the aircraft.
+5-17. The transport cradle is made up of four assemblies, each of which consists
+of two low pyramidal _structures supporting on their apexes a load-bearing beam.
+Each of the four DSRV support fittings rests on and is latched to a fitting in the center
+of one of these beams. The four cradle assemblies have attached skis that facilitate
+sliding the transport cradle on the aircraft or on the LTV deck and distribute the weight
+to many rollers. Tiedown fittings secure the transport cradle to the transporting vehicle.
+
+0
+ORIGINAL
+
+5- 5
+
+NAVSHIPS 0905- 120-0010
+
+(
+
+5-18.
+
+TRANSFER SKIRT DOLLY. This unit is used for handling, shipping, and
+
+storing the transfer skirt and the shock mitigation ring assembly when detached from
+the DSRV. It is capable of raising, lowering, rotating, and translating the skirt and
+shock ring to facilitate attachment and removal of these components to and from the
+vehicle. Three casters with lockable wheels permit rotating and translating the dolly;
+a manual screw jack over each caster permits raising the skirt and shock ring for
+installation.
+5-19. PYLON HANDLING DOLLY.
+
+The pylon handling dolly is used for handling,
+
+shipping, and storing the pylons when detached from the mother submarine. The
+dolly provides support, protection, and mobility for the pylon assemblies during
+periods between missions and serves as a work stand during post-maintenance procedures. When the DSRV is transported by land or air during mission operatic;ms, the
+dolly is also transported as the shipping container and protective device for the pylon
+assemblies. At dockside (outbound on the mission), the pylons are transferred via
+.f
+
+crane to the mother submarine for installation. After return to dockside and removal
+01 the DSRV, the pylon assemblies are removed from the mother submarine and again
+
+stored on the dolly for reshipment to the home base. A fitted dust cover, provided with
+the dolly, is used to protect the pylons during shipment and storage.
+5-20 . SUPPORT VAN. The support van provides storage space and transportation
+
+for the DSRV' s battery charging and shore power system. The van provides a shelter
+for the operator to monitor the control panel during battery charging operations, as
+well as storage space for the following items:
+•
+
+Life support replenishment material
+
+•
+
+Pressure-compensating fluids
+
+•
+
+Hydraulic fluid
+
+•
+
+Rescuee ballast service unit
+
+•
+
+Pressure capsule heater and air conditioning unit
+
+•
+
+Hull cooling water pump
+
+•
+
+Spare DSRV components
+
+•
+
+SSN/D~RV cables
+
+The prime mover (tractor) required for over-the-road operations supplies electric
+power for running lights and pneumatic power for service brakes.
+ORIGINAL
+
+5-6
+
+NAVSHIPS U905-120-0010
+
+5-21. Four sling attachment fittings allow the trailer body (running gear detached)
+to be hoisted aboard the ASR. Four V-groove casters on the body's underside mate
+with an inverted angle track system for on-board stowage. Tiedowns prevent the van
+from rolling while aboard the ASR.
+5-22. Detachable separate front and rear running gear assemblies are attached to the
+payload body for towing.
+
+The front running gear is composed of axles, wheels, brakes,
+
+suspension, and a tow bar with lunette eye. The rear running gear has a single axle,
+wheels, brakes, suspension, and a towing eye for winching the vehicle backward into
+the transport aircraft. Air for operation ot the vehicle's service: brakes is supplied
+by the prune mover. Manual mechanical parldng brakes are provided for both front
+and rear running gear assemblies.
+5-23. AIRCRAFT LOADING AND TRANSPORT (FIG. 5-3).
+5-24. AIRCRAFT NO. l
+
+The following items of equipment are required to stabilize
+
+the C-141A transport Aircraft No. l and to support its loading ramp when transferring
+the DSRV and its support cradle from the LTV to the airplane or vice versa.
+5-25. Fuselage Supports.
+
+Two 30-ton jacks, two 70-ton jacks, an adjustable fuselage
+
+cradle and two ramp cradles are provided to stabilize the aircraft during loading and
+offloading operations. The jacks are hydraulic; the cradles are equipped with screwtype leveling jacks. All are equipped with spring-loaded casters that compress under
+load and allow ground-seating of base plates.
+
+D
+
+D
+30-Ton Jo,;ks
+
+70-Ton Jo,;ks
+FuJelo9e Crodl e
+
+0
+
+Romp Crodles
+
+Fig. 5-3 Aircraft Fuselage and Ramp Supports
+ORIGINAL
+
+5-7
+
+NAVSHIPS 0905-120-0010
+
+5-26. The 30-ton jacks support the aircraft through special jack pads on each s ide
+
+(
+
+of the fuselage near the forwa rd landing gear. The jacks are variable-height, tripodtype units With hydraulic-lift center ram and a mechanical screw extension. A manu ally operated hydraulic pump, mounted on one leg of the tripod, provides fluid under
+pressure to the ram. The 70-ton jacks support the aircraft by means of jack pads
+under the fuselage just aft of the main landing gear. Each jack consists of a hori zontal caster-mounted body with a hydraulic ram at one end and a two-speed manual
+pump at the other. A steering handle allows easy placement of the jack under the
+fuselage just aft of the main landing gear. Each jack ram has a screw-type mechanical
+extension. The fuselage cradle serves as a support for the aircraft just forward of the
+loading r amp hinge.
+
+The fuselage cradle conforms to the under-side shape of the air craft
+
+fuselage at this station and is supported at each end by screw-type tripod jacks. A
+flexible pad inside the cradle protects the fuselage.
+5-27. Ramp Supports. During the loading and offloading of the DSRV, two ramp
+cradles provide support for this portion of the aircraft . They are similar in configuration to the fuselage cradle; each cradle conforms to the ramp contour - one forward and the other aft - and is supported at each end by a screw-type leveling jack.
+Caster~, which compr_e ss under load, allow easy positioning of cradles.
+5-28. AIRCRAFT NO. 2.
+
+After the DSRV is unloaded from the LTV, specific mission
+
+and support equipment is transferred from the two flatbed trailers to the LTV. The
+LTV then is loaded onto Aircraft No. 2. Special equipment required for loading the
+DSRV onto the LTV is also carried on this aircraft.
+5-29, AIRCRAFT NO. 3. Aircraft No. 3 is loaded with the pylons, support van,
+transfer skirt, 18 crew members, and the remaining equipment from the flatbed
+trailers.
+5-30. AIRCRAFT NO. 4. Aircraft No. 4 carries equipment required for the ship of
+opportunity.
+
+)
+ORIGINAL
+
+5- 8
+
+NAVSHIPS 0905-120-0010
+
+5-31. SHIPBOARD LOADING AND HANDLrnG.
+5-32. Included in this category are those items of equipment used for loading the
+DSRV aboard either the ASR, the mother submarine (and, in this case, for supporting
+the vehicle in the piggyback position) , or a ship of opportunity.
+5-33. MOTHER SUBMARrnE. Loading the DSRV aboard the mother submarine is
+accomplished with the DSRV lifting sling assembly which attaches to the four lift
+fittings on the vehicle. The steel rods that make up the sling can be assembled with
+a single hoisting point or as a double pickup configuration for twin hoists. The two
+configurations make the sling compatible with a multitude of dockside hoists.
+5-34. The DSRV cradle assembly is used to secure the DSRV atop the mother submarine. The DSRV is thus carried piggyback on the mother submarine from the
+departure port to the rescue area. The cradle assembly provides a means to release
+the DSRV for the rescue mission, to capture and hold the DSRV during rescuee transfer,
+and to transport the DSRV back to dockside after mission completion. The cradle
+
+)
+
+assembly system consists of the forward and aft pylons and a control panel with related
+cable assemblies. The pylons also serve as a shock mitigation device during DSRV
+recovery. The control° panel within the mother submarine activates and monitors the
+latches that hold the DSRV on the pylons. These elements are carried as a part of
+the DSRV System and are installed on the mother submarine at dockside prior to loading
+the DSRV aboard.
+5-35. Pylons. The pylons are transported in two subassemblies, one for installation
+forward and one aft of the mother submarine after rescue hatch. Each assembly includes
+two support pylons tied together with crossbracing. The DSRV is guided into the pylons
+by the DSRV pilot, shock mitigation devices within the pylons absorb any contact shock,
+and the four DSRV support fittings drop into depressions in the top of the pylons. On
+command from the control subsystem within the mother submarine, the shock mitigation
+devices are locked and the latch hooks within the pylons engage the DSRV support fittings
+and firmly secure the vehicle. The foregoing routine is executed in reverse for DSRV
+release.
+
+0
+ORIGrnAL
+
+5- 9
+
+NAVSHIPS 0905-120-0010
+
+5-36. Controls. The control subsystem consists of a control panel plus cable assemblies. The pylon control panel is carried onboard and operated inside the mother submarine. The pylon control panel controls the latching mechanisms within the pylons,
+navigation lights, and indicates the position of the latches.
+5-37. SUBMARINE RESCUE SHIP (ASR). A hoisting sling assembly, provided with
+the ASR, is used for loading the DSRV aboard the ship. Provisions for handling the
+DSRV after loading are integral with the ASR system and are described in detail in
+Section 6.
+5-38. SHIP OF OPPORTUNITY. A limited number of mother submarines (SSN) have
+been modified to support the DSRV rescue mission. The ship of opportunity concept
+was introduced to expand the operating area of the DSRV. The equipment to be used
+for ship of o pportunity operations constitutes a nearly self-contained and supported
+system. Wi th this equipment, the DSRV can be installed on the open deck area of
+any suitable ship. A 50-ton crane is required to lift the DSRV at sea.
+
+)
+ORIGINAL
+
+5- 10
+
+NAVSHIPS 0905-120-0010
+
+5-39.
+
+CHECKOUT AND SERVICING.
+
+5-40.
+
+Checkout, servicing, and maintenance (both preventive and corrective) pro-
+
+cedures are required to maintain the DSRV in a continuing state of mission readiness.
+The depth and extent of these procedures will depend on the mission status of the
+vehicle, and will reflect the time and equipment available; i.e., a far more comprehensive checkout can be performed at the home port facilities than during the 50 minutes
+available on the support vessel between rescue mission dives.
+5-41.
+
+These procedures fall naturally into two basic categories - those which are
+
+performed on a DSRV System while it is in the standby state at the home port, and
+those which are performed after an alarm has been sounded and the operational
+phases of a rescue mission are under way. These operational phases consist of the
+following: 1) at the home port just prior to deployment to the rescue scene, 2) at
+dockside before being put ~board the support vessel, 3) at sea enroute to the rescue
+site, 4) after launch from the support vessel but prior to first dive, 5) during the
+dwell time between rescue dives, and 6) during the return to dockside.
+5-42.
+
+STANDBY CHECKOUT AND SERVICING. Checkout and servicing of the DSRV,
+
+assigned to standby duty at the rescue unit home port, are conducted periodically on
+systems and critical components to assure conformance to specification requirements. Tests are diagnostic to the component spare level and enable the isolation
+and replacement of faulty elements. Equipment operation and limits will be checked
+to determine that each functional item capable of independent operation is performing
+within specification limits. Included are the following operations: sampling of all
+stored fluids for required level and contamination; calibration of sensors and readouts; open loop operation of systems; bench testing of selected components; and
+all other tests necessary to determine that the equipment is operating within the
+stipulated limits. Out-of-tolerance stimuli are introduced to verify operation of all
+alarms. Special checkout programs loaded into the central processing computer are
+used to test the integrated controls and displays. In addition to the vehicle proper and
+its systems, checkouts and servicing are conducted for all support equipment in
+the DSRV System.
+
+0
+ORGINAL
+
+5- 11
+
+NAVSHIPS 0905-120-0010
+
+5-43. Systems included in the standby mode checkout and servicing are main ballast,
+variable ballast, list and trim ballast, transfer ballast, rescuee ballast, electrical,
+hydraulic, propulsion and maneuvering, shock mitigation, manipulator, ASR retrieval
+arms, control and display, life support. emergency jettison, and all support equipment.
+5-44.
+
+OPERATIONAL CHECKOUT AND SERVICING. All checkouts made during the
+
+operational phases of a rescue mission are done to provide status indications for a
+go/no-go decision .. No s tandard s ervicing {except for replenishment of life support
+stores and recharging of main batteries) is done unless a checkout or walkaround
+inspec tion reveals an abnormal condition.
+5-45. At Home Base Following Rescue Alarm.
+
+At this stage in a rescue mission
+
+the DSR V is on the support stand, the support equipment trailer is packed and ready
+to move, all loading and handling equipment is crated or palletized, and crew's
+personal baggage is ready. No more than an hour is available to determine operation
+readiness on a go/no-go basis. The DSRV is placed on the LTV or SHV, batteries are
+given a final check. a visual walkaround inspection of the vehicle is made for leaks
+and for loose electrical or mechanical connections, and jettison safety devices are
+inslalled. The control and display panel together with the central processing computer will be used for status determination.
+5-46.
+
+At Dockside. Certain variables in the mission deployment pattern will deter-
+
+mine the extent of dockside checkout. If the DSRV System has been airlifted from
+its home port to this point, special care must be taken to determine whether or not
+any damage has occu.rred in transit. Likewise, if the support vessel to be used is a
+mother s ubmarine, checkout emphasis must be placed on systems and equipment
+that are inaccessible when the DSRV is mounted piggyback on the submarine. In any
+event, the checkout routine will again serve as a basis for a go/no-go decision,
+especially with regard to those items removed for transport by air and replaced at
+docJr..side.
+5-47. Enroute to Rescue Area. This checkout while the DSRV is mated to the mother
+submarine or onboard the ASR is conducted to further assure that systems are
+functioning properly. In the event of support by a mother submarine, it will also
+
+)
+ORIGINAL
+
+5-12
+
+NAVSHIPS 0905-120-0010
+provide an opportunity to check certain systems that need a submerged environment for indication of proper functioning. Water may be introduced to transfer tanks
+to expedite transfer skirt flooding during initial demating from the mother submarine.
+Prior to first dive, the rescuee ballast bags in mid and aft spheres are filled with
+water from the mother submarine water systems.
+
+Checkout time available will
+
+depend on transit time to rescue area.
+5-48. Prior to Operational Dive.
+
+This operational checkout is conducted in the
+
+water immediately after demating from the mother submarine or after underwater
+launch by the ASR. It is a quick check on system operation in the submerged environment and a check of buoyancy and trim before commencing a dive.
+5-49. Between Rescue Dives.
+
+Total time available for all activities between dives
+
+is approximately 50 minutes, the time required for recharging the DSRV main batteries.
+During this period, rescuees must be transferred to the support vessel and the following •
+servicing operations performed: life support system replenished, rescuee ballast bags
+refilled, condensate tanks and bilges pumped out, other waste materials removed,
+rescuee ballast air flask replaced or recharged, and for ASR operations, the main
+ballast air supply recharged. Again, checkout is limited to a quick status indication
+for a go/ no-go decision.
+5-50.
+
+PREVENTIVE MAINTENANCE.
+
+Preventive maintenance is performed on a
+
+periodic basis for all elements in the DSRV System. Schedules are set forth in the
+Planned Maintenance System Manual, and the associated procedures as given in
+Maintenance Requirements Cards.
+5-51.
+
+CORRECTIVE MAINTENANCE. Corrective maintenance is performed as
+
+necessary to return the DSRV System to an operational status. Procedures pertaining to corrective maintenance are included With troubleshooting instructions in the
+appropriate DSRV manuals, which are identified in Section 7.
+
+0
+ORIGINAL
+
+5-13
+
+NAVSHIPS 0905-120-0010
+
+5-52. SUPPORT AND SERVICING EQUIPMENT.
+5-53. Included here are all items of equipment required to support and service the
+DSRV during its various operational modes. They can be grouped into three general
+categories: electrical support, servicing support, and life support resupply.
+5-54. ELECTRICAL SUPPORT. Electrical support consists of SSN mission support,
+ASR mission support, and ship of opportunity support.
+5-55. SSN Mission. SSN mission electrical support consists of two Oto 200 ampere
+Thornton battery _c hargers. The DSRV shore power is supplied by the SSN.
+5-56. ASR Mission. ASR mission electrical support is provided by the ASR for battery
+charging and shore power. The DSRV support van may be used as an alternative source
+to supply shore power and battery charging.
+5-57. Ship of Opportunity. Ship of opportunity electrical support is provided by the
+ship of opportunity support equipment. Battery charging and shore power is supplied
+by the power console. Power is supplied to the power console by the ship of opportunity
+equipment diesel generator or by the ship of opportunity itself.
+5-58. SERVICING SUPPORT. Units of equipment in this category are, in general,
+used for the replenishment of consumables aboard the DSRV or for the removal of
+accumulated waste.
+5-59. Compe~sating Fluid Service Units. These portable fluid containers and manual
+pumps are used to service the fluid- filed pressure compensators that protect such DSRV
+electrical equipment as the main battery boxes, power distribution boxes, cable junction
+boxes, power interlock boxes, main propulsion motor, and thruster motors. Operating
+as force pumps, the three service units top off the fluid in the compensators and connected equipment with the particular type and kind of fluid specified for each. These
+three types of fluids are used for both pressure compensation and insulation and additionally for transfer of beat from the equipment to the surrounding container.
+5-60. Each compensating fluid service unit consists of a hand- operated rotary pump
+mounted on top of a plastic container with a 0 . 75 cubic foot capacity. A 6-foot hose
+ORIGINAL
