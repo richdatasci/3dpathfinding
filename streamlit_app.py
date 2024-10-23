@@ -152,7 +152,8 @@ def dijkstra_3d_top_2_paths(graph, start, goal, active_eyeplates, component_weig
         current_node = previous_nodes[current_node]
 
     return first_path, second_path
-
+    
+# Function to visualize the 3D graph with Plotly
 def visualize_3d_graph_plotly(G, pos, first_path=None, second_path=None, active_eyeplates=None):
     edge_trace = []
     first_path_edge_trace = []
@@ -205,15 +206,15 @@ def visualize_3d_graph_plotly(G, pos, first_path=None, second_path=None, active_
                               marker=dict(size=node_size, color='skyblue'),
                               hoverinfo='text')
 
-    # Camera view for landscape
-    camera = dict(eye=dict(x=2.5, y=0.1, z=0.8))  # Adjust camera for a horizontal view
+    # Adjust camera for portrait view (rotate to see levels better)
+    camera = dict(eye=dict(x=0.1, y=2.5, z=2.0))  # Adjust the x, y, z for a better portrait perspective
 
-    # Adjust width and height of the figure to 2500x1500 as requested
+    # Adjust the width and height to fit portrait (taller than wider)
     fig = go.Figure(data=edge_trace + first_path_edge_trace + second_path_edge_trace + [node_trace],
-                    layout=go.Layout(title='Use mouse to zoom and rotate',
-                                     width=2500,  # Set the width to 2500 pixels
-                                     height=1500,  # Set the height to 1500 pixels
-                                     scene_camera=camera,  # Apply the camera for landscape view
+                    layout=go.Layout(title='Use mouse to zoom and rotate (Portrait Orientation)',
+                                     width=1000,  # Portrait width
+                                     height=1500,  # Portrait height (taller)
+                                     scene_camera=camera,  # Apply the camera for portrait view
                                      showlegend=False,
                                      scene=dict(xaxis=dict(showbackground=False),
                                                 yaxis=dict(showbackground=False),
