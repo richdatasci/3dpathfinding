@@ -153,6 +153,73 @@ def dijkstra_3d_top_2_paths(graph, start, goal, active_eyeplates, component_weig
 
     return first_path, second_path
 
+def visualize_3d_graph_plotly(G, pos, first_path=None, second_path=None, active_eyeplates=None):
+    edge_trace = []
+    first_path_edge_trace = []
+    second_path_edge_trace = []
+    node_x, node_y, node_z = [], [], []
+    node_text = []
+    node_size = []
+    node_capacity = []
+
+    for node in G.nodes():
+        x, y, z = pos[node]
+        node_x.append(x)
+        node_y.append(y)
+        node_z.append(z)
+        node_text.append(f"{node} (Capacity: {G.nodes[node]['capacity']}kg)" if 'capacity' in G.nodes[node] else node)
+        node_size.append(G.nodes[node]['size'])
+        if 'capacity' in G.nodes[node]:
+            node_capacity.append(G.nodes[node]['capacity'])
+
+    # Add edges (connect nearest neighbors)
+    for edge in G.edges():
+        x0, y0, z0 = pos[edge[0]]
+        x1, y1, z1 = pos[edge[1]]
+        edge_trace.append(go.Scatter3d(x=[x0, x1], y=[y0, y1], z=[z0, z1],
+                                       mode='lines', line=dict(color='gray', width=2)))
+
+    # Highlight the first (most efficient) path in green
+    if first_path:
+        first_path_edges = list(zip(first_path, first_path[1:]))
+        for edge in first_path_edges:
+            x0, y0, z0 = pos[edge[0]]
+            x1, y1, z1 = pos[edge[1]]
+            first_path_edge_trace.append(go.Scatter3d(x=[x0, x1], y=[y0, y1], z=[z0, z1],
+                                                      mode='lines', line=dict(color='green', width=6)))
+
+    # Highlight the second (second most efficient) path in blue
+    if second_path:
+        second_path_edges = list(zip(second_path, second_path[1:]))
+        for edge in second_path_edges:
+            x0, y0, z0 = pos[edge[0]]
+            x1, y1, z1 = pos[edge[1]]
+            second_path_edge_trace.append(go.Scatter3d(x=[x0, x1], y=[y0, y1], z=[z0, z1],
+                                                       mode='lines', line=dict(color='blue', width=4)))
+
+    # Add nodes with tooltips (include active eyeplates toggle)
+    node_trace = go.Scatter3d(x=node_x, y=node_y, z=node_z,
+                              mode='markers+text',
+                              text=node_text,
+                              textposition='top center',
+                              marker=dict(size=node_size, color='skyblue'),
+                              hoverinfo='text')
+
+    # Camera view for landscape
+    camera = dict(eye=dict(x=2.5, y=0.1, z=0.8))  # Adjust camera for a horizontal view
+
+    # Adjust width and height of the figure to 2500x1500 as requested
+    fig = go.Figure(data=edge_trace + first_path_edge_trace + second_path_edge_trace + [node_trace],
+                    layout=go.Layout(title='Use mouse to zoom and rotate',
+                                     width=2500,  # Set the width to 2500 pixels
+                                     height=1500,  # Set the height to 1500 pixels
+                                     scene_camera=camera,  # Apply the camera for landscape view
+                                     showlegend=False,
+                                     scene=dict(xaxis=dict(showbackground=False),
+                                                yaxis=dict(showbackground=False),
+                                                zaxis=dict(showbackground=False))))
+    return fig
+
 # Streamlit app
 def main():
     st.title("3D Ship Compartment Pathfinding Visualization")
