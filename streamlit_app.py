@@ -7,7 +7,7 @@ import json
 
 # Load the Eyeplate data from the provided JSON file
 def load_eyeplate_data():
-    with open('/mnt/data/EyeplateComms.json') as f:
+    with open('EyeplateComms.json') as f:
         data = json.load(f)
     return data
 
