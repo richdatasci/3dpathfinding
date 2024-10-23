@@ -7,7 +7,7 @@ import json
 
 # Load the Eyeplate data from the provided JSON file
 def load_eyeplate_data():
-    with open('EyeplateComms.json') as f: # This can be changed to what ever local path we need
+    with open('EyeplateComms.json') as f: # this can be changed to whatever location we need
         data = json.load(f)
     return data
 
@@ -50,7 +50,7 @@ def generate_graph_by_floors(eyeplates_data):
     pos = nx.get_node_attributes(G, 'pos')
     return G, pos
 
-# Dijkstra's Algorithm to find top 2 paths
+# Dijkstra's Algorithm to find the most efficient paths
 def dijkstra_3d_top_2_paths(graph, start, goal, active_eyeplates, component_weight, penalty=1.5):
     # Filter the graph based on active eyeplates
     filtered_graph = graph.copy()
@@ -61,15 +61,13 @@ def dijkstra_3d_top_2_paths(graph, start, goal, active_eyeplates, component_weig
             filtered_graph.remove_node(node)
 
     pos = nx.get_node_attributes(filtered_graph, 'pos')
-    
-    # Run Dijkstra's algorithm for the first (most efficient) path
+
+    # Run Dijkstra's algorithm for the most efficient path
     queue = [(0, start)]
     distances = {node: float('inf') for node in filtered_graph.nodes}
     distances[start] = 0
     previous_nodes = {node: None for node in filtered_graph.nodes}
 
-    first_path_edges = []
-    
     while queue:
         current_distance, current_node = heapq.heappop(queue)
 
@@ -96,13 +94,13 @@ def dijkstra_3d_top_2_paths(graph, start, goal, active_eyeplates, component_weig
                 previous_nodes[neighbor] = current_node
                 heapq.heappush(queue, (distance, neighbor))
 
-    # Reconstruct the most efficient path (first path)
+    # Reconstruct the most efficient path
     first_path = []
     current_node = goal
     while current_node is not None:
         first_path.insert(0, current_node)
         current_node = previous_nodes[current_node]
-    
+
     # Remove edges from the first path and recalculate for the second path
     first_path_edges = list(zip(first_path, first_path[1:]))
 
@@ -116,8 +114,6 @@ def dijkstra_3d_top_2_paths(graph, start, goal, active_eyeplates, component_weig
     distances[start] = 0
     previous_nodes = {node: None for node in filtered_graph.nodes}
 
-    second_path_edges = []
-    
     while queue:
         current_distance, current_node = heapq.heappop(queue)
 
@@ -144,7 +140,7 @@ def dijkstra_3d_top_2_paths(graph, start, goal, active_eyeplates, component_weig
                 previous_nodes[neighbor] = current_node
                 heapq.heappush(queue, (distance, neighbor))
 
-    # Reconstruct the second most efficient path (second path)
+    # Reconstruct the second most efficient path
     second_path = []
     current_node = goal
     while current_node is not None:
@@ -152,8 +148,27 @@ def dijkstra_3d_top_2_paths(graph, start, goal, active_eyeplates, component_weig
         current_node = previous_nodes[current_node]
 
     return first_path, second_path
-    
-# Function to visualize the 3D graph with Plotly
+
+
+# Function to save the routes to a JSON file
+def save_routes_to_json(start, goal, component, first_path, second_path):
+    route_data = {
+        "start": start,
+        "goal": goal,
+        "component": {
+            "name": component[0],
+            "weight": component[1]
+        },
+        "most_efficient_path": first_path,
+        "second_most_efficient_path": second_path
+    }
+    # Save to route_output.json
+    with open('route_output.json', 'w') as f:
+        json.dump(route_data, f, indent=4)
+    st.write("**Routes saved to `route_output.json`**")
+
+
+# Function to visualize the 3D graph with Plotly (1st Green, 2nd Blue)
 def visualize_3d_graph_plotly(G, pos, first_path=None, second_path=None, active_eyeplates=None):
     edge_trace = []
     first_path_edge_trace = []
@@ -180,7 +195,7 @@ def visualize_3d_graph_plotly(G, pos, first_path=None, second_path=None, active_
         edge_trace.append(go.Scatter3d(x=[x0, x1], y=[y0, y1], z=[z0, z1],
                                        mode='lines', line=dict(color='gray', width=2)))
 
-    # Highlight the first (most efficient) path in green
+    # Highlight the most efficient path in green
     if first_path:
         first_path_edges = list(zip(first_path, first_path[1:]))
         for edge in first_path_edges:
@@ -189,7 +204,7 @@ def visualize_3d_graph_plotly(G, pos, first_path=None, second_path=None, active_
             first_path_edge_trace.append(go.Scatter3d(x=[x0, x1], y=[y0, y1], z=[z0, z1],
                                                       mode='lines', line=dict(color='green', width=6)))
 
-    # Highlight the second (second most efficient) path in blue
+    # Highlight the second most efficient path in blue
     if second_path:
         second_path_edges = list(zip(second_path, second_path[1:]))
         for edge in second_path_edges:
@@ -221,9 +236,10 @@ def visualize_3d_graph_plotly(G, pos, first_path=None, second_path=None, active_
                                                 zaxis=dict(showbackground=False))))
     return fig
 
+
 # Streamlit app
 def main():
-    st.title("3D Ship Compartment Pathfinding Visualization")
+    st.title("3D Pathfinding")
 
     # Load eyeplate data from JSON
     eyeplates_data = load_eyeplate_data()
@@ -254,15 +270,14 @@ def main():
     active_eyeplates = st.sidebar.multiselect("Select Active Eyeplates:", eyeplates, default=eyeplates)
 
     if st.sidebar.button("Find Path"):
-        # Run the pathfinding algorithm to get the top 2 paths
-        first_path, second_path = dijkstra_3d_top_2_paths(G, start_node, goal_node, active_eyeplates, component_weight)
+        # Run the pathfinding algorithm to get the most efficient path
+        first_path = dijkstra_3d_most_efficient_path(G, start_node, goal_node, active_eyeplates, component_weight)
 
         # Output the results
         st.write(f"**Most efficient path from {start_node} to {goal_node}:** {first_path}")
-        st.write(f"**Second most efficient path from {start_node} to {goal_node}:** {second_path}")
 
-        # Visualise the top 2 routes in the 3D graph
-        fig = visualize_3d_graph_plotly(G, pos, first_path=first_path, second_path=second_path, active_eyeplates=active_eyeplates)
+        # Visualize the most efficient route in the 3D graph
+        fig = visualize_3d_graph_plotly(G, pos, first_path=first_path, active_eyeplates=active_eyeplates)
     else:
         fig = visualize_3d_graph_plotly(G, pos, active_eyeplates=active_eyeplates)
 
