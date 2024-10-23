@@ -7,7 +7,7 @@ import json
 
 # Load the Eyeplate data from the provided JSON file
 def load_eyeplate_data():
-    with open('EyeplateComms.json') as f: # this can be changed to whatever location we need
+    with open('/mnt/data/EyeplateComms.json') as f:
         data = json.load(f)
     return data
 
@@ -50,7 +50,7 @@ def generate_graph_by_floors(eyeplates_data):
     pos = nx.get_node_attributes(G, 'pos')
     return G, pos
 
-# Dijkstra's Algorithm to find the most efficient paths
+# Dijkstra's Algorithm to find the most efficient and second most efficient paths
 def dijkstra_3d_top_2_paths(graph, start, goal, active_eyeplates, component_weight, penalty=1.5):
     # Filter the graph based on active eyeplates
     filtered_graph = graph.copy()
@@ -149,8 +149,7 @@ def dijkstra_3d_top_2_paths(graph, start, goal, active_eyeplates, component_weig
 
     return first_path, second_path
 
-
-# Function to save the routes to a JSON file
+# Function to save both routes to a JSON file
 def save_routes_to_json(start, goal, component, first_path, second_path):
     route_data = {
         "start": start,
@@ -167,8 +166,7 @@ def save_routes_to_json(start, goal, component, first_path, second_path):
         json.dump(route_data, f, indent=4)
     st.write("**Routes saved to `route_output.json`**")
 
-
-# Function to visualize the 3D graph with Plotly (1st Green, 2nd Blue)
+# Function to visualize the 3D graph with Plotly (highlight most efficient path in green, second in blue)
 def visualize_3d_graph_plotly(G, pos, first_path=None, second_path=None, active_eyeplates=None):
     edge_trace = []
     first_path_edge_trace = []
@@ -236,10 +234,9 @@ def visualize_3d_graph_plotly(G, pos, first_path=None, second_path=None, active_
                                                 zaxis=dict(showbackground=False))))
     return fig
 
-
 # Streamlit app
 def main():
-    st.title("3D Pathfinding")
+    st.title("3D Pathfinder")
 
     # Load eyeplate data from JSON
     eyeplates_data = load_eyeplate_data()
@@ -252,8 +249,8 @@ def main():
         'Air Pump (1000kg)': 1000,
         'Thermal Shield (100kg)': 100
     }
-    selected_component = st.sidebar.selectbox("Choose a component:", list(components.keys()))
-    component_weight = components[selected_component]
+    selected_component_name = st.sidebar.selectbox("Choose a component:", list(components.keys()))
+    component_weight = components[selected_component_name]
 
     st.sidebar.header("Graph Options")
     
@@ -270,14 +267,18 @@ def main():
     active_eyeplates = st.sidebar.multiselect("Select Active Eyeplates:", eyeplates, default=eyeplates)
 
     if st.sidebar.button("Find Path"):
-        # Run the pathfinding algorithm to get the most efficient path
-        first_path = dijkstra_3d_most_efficient_path(G, start_node, goal_node, active_eyeplates, component_weight)
+        # Run the pathfinding algorithm to get the most efficient and second most efficient paths
+        first_path, second_path = dijkstra_3d_top_2_paths(G, start_node, goal_node, active_eyeplates, component_weight)
 
         # Output the results
         st.write(f"**Most efficient path from {start_node} to {goal_node}:** {first_path}")
+        st.write(f"**Second most efficient path from {start_node} to {goal_node}:** {second_path}")
 
-        # Visualize the most efficient route in the 3D graph
-        fig = visualize_3d_graph_plotly(G, pos, first_path=first_path, active_eyeplates=active_eyeplates)
+        # Save the routes to a JSON file
+        save_routes_to_json(start_node, goal_node, (selected_component_name, component_weight), first_path, second_path)
+
+        # Visualize the most efficient route in green and the second most efficient route in blue
+        fig = visualize_3d_graph_plotly(G, pos, first_path=first_path, second_path=second_path, active_eyeplates=active_eyeplates)
     else:
         fig = visualize_3d_graph_plotly(G, pos, active_eyeplates=active_eyeplates)
 
@@ -286,3 +287,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+           
