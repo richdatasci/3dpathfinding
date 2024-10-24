@@ -49,7 +49,7 @@ def generate_graph_by_floors(eyeplates_data):
 
     pos = nx.get_node_attributes(G, 'pos')
     return G, pos
-
+    
 # Dijkstra's Algorithm to find the most efficient and second most efficient paths
 def dijkstra_3d_top_2_paths(graph, start, goal, active_eyeplates, component_weight, penalty=1.5):
     # Filter the graph based on active eyeplates
@@ -101,12 +101,12 @@ def dijkstra_3d_top_2_paths(graph, start, goal, active_eyeplates, component_weig
         first_path.insert(0, current_node)
         current_node = previous_nodes[current_node]
 
-    # Remove edges from the first path and recalculate for the second path
+    # Instead of removing edges, increase their weight to make them less favorable for the second path
     first_path_edges = list(zip(first_path, first_path[1:]))
 
     for edge in first_path_edges:
         if filtered_graph.has_edge(*edge):
-            filtered_graph.remove_edge(*edge)
+            filtered_graph[edge[0]][edge[1]]['weight'] *= 10  # Increase the weight of the edge
 
     # Run Dijkstra's algorithm for the second path
     queue = [(0, start)]
